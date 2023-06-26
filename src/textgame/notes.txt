@@ -1,0 +1,14 @@
+
+stats that affect combat
+
+player
+ weapon
+ vigor
+ level
+ monster defense
+
+monster
+ battlepower(weapon)
+ vigor
+ level
+ player defense(+armor defenses)
