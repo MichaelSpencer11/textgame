@@ -2,9 +2,15 @@ package textgame.jobs;
 
 import java.util.ArrayList;
 
+import textgame.spells.Cure;
+import textgame.spells.Spell;
+
 public class WhiteMage extends Job {
 
+	protected Spell cure = new Cure();
+
 	protected ArrayList<Ability> abilities;
+	protected ArrayList<Spell> spells;
 	protected Ability attack;
 	protected Ability magic;
 	protected Ability item;
@@ -24,12 +30,14 @@ public class WhiteMage extends Job {
 		this.evade = 13;
 		this.defMod = 2;
 		this.abilities = new ArrayList<Ability>();
+		this.spells = new ArrayList<>();
 		this.attack = new Ability("a: Attack");
 		this.magic = new Ability("m: Magic");
 		this.item = new Ability("i: Item");
 		this.abilities.add(attack);
 		this.abilities.add(magic);
 		this.abilities.add(item);
+		this.spells.add(cure);
 		
 	}
 

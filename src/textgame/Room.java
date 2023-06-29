@@ -186,7 +186,7 @@ public class Room {
         else if(terrainType.equals("grass")){
             this.roomTerrain = Terrain.grass;
         }
-        else if(terrainType.equals("forest ")){
+        else if(terrainType.equals("forest")){
             this.roomTerrain = Terrain.forest;
         }
         else if(terrainType.equals("snow")){

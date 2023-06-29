@@ -67,7 +67,7 @@ public class Monster {
 	}
 
 	//monster that does not block another room
-	public Monster(String name, int lvl, int delay, Room room){
+	public Monster(String name, int lvl, int delay, int respawnTime, Room room){
 		int randomNess = Random.roll(1,100);
 		this.name = name;
 		this.level = lvl;
@@ -77,6 +77,7 @@ public class Monster {
 		setStartingDefense(level);
 		setStartingMdef(level);
 		this.delay = delay;
+		this.respawnTime = respawnTime;
 		this.hitRate = 100;
 		setStartingGp(level);
 		setStartingXp(level);
@@ -91,6 +92,36 @@ public class Monster {
 		this.currentRoom = room;
 		currentRoom.getMonsters().add(this);
 	}
+
+	//monster blocking another room
+	public Monster(String name, int lvl, int delay,int respawnTime, Room room, Room blocking){
+		int randomNess = Random.roll(1,100);
+		this.name = name;
+		this.level = lvl;
+		setStartingMaxHp(level);
+		setStartingVigor(level);
+		setStartingBatPow(level);
+		setStartingDefense(level);
+		setStartingMdef(level);
+		this.delay = delay;
+		this.respawnTime = respawnTime;
+		this.hitRate = 100;
+		setStartingGp(level);
+		setStartingXp(level);
+		//drop
+		if(randomNess >= 1 && randomNess <= 25){
+			generatePotionDrops(this.level);
+		} else if(randomNess >= 26 && randomNess <= 75){
+			generateArmorDrops(this.level);
+		} else {
+			generateWeaponDrops(this.level);
+		}
+		this.currentRoom = room;
+		currentRoom.getMonsters().add(this);
+
+		this.blocking = blocking;
+	}
+
 	public Monster(){}
 
 	public void attack(Battle battleContext) {

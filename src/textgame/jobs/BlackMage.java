@@ -16,7 +16,7 @@ public class BlackMage extends Job {
 	protected Ability item;
 
     public BlackMage() {
-		this.level = 10;
+		this.level = 2;
 		setMaxHp(level);
 		setHp(maxHp);
 		setMaxExp(level);
@@ -39,8 +39,7 @@ public class BlackMage extends Job {
 		this.abilities.add(item);
 		this.spells = new ArrayList<>();
 		this.spells.add(fire);
-		this.spells.add(ice);
-		this.spells.add(bolt);
+
 	}
 
 	public void setMaxHp(int newLevel){

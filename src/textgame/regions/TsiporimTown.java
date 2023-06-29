@@ -11,8 +11,9 @@ import textgame.weapons.Weapon;
 
 public class TsiporimTown extends Region {
 
-    public Room nLink;
-    public Room alleyLink;
+    Room nLink;
+    Room alleyLink;
+    Room caveLink;
 
     public TsiporimTown(){}
 
@@ -93,14 +94,14 @@ public class TsiporimTown extends Region {
         Room dirtPath7 = new Room("forest","A dirt path", "The path becomes faint here and overgrown with bushes. It seems like no one has been here in a while.",null,null,dirtPath6,null,null,null,null,null,null,null);
         Room dirtPath8 = new Room("forest","A dirt path","The path now widens and the trees grow a little more sparse at this point. The deep sound of water can be heard.",null,null,dirtPath7,null,null,null,null,null,null,null);
         Room riverBank = new Room("forest","A river bank", "A river gently moves from south to north and the occasional plop of fish jumping out of the water can be heard.",null,null,dirtPath8,null,null,null,null,null,null,null);
+        Room caveEntrance = new Room("rocky","Cave entrance", "The entrance to an old and worn cave. Strange markings are found on the rocks and there is an old sign 'Enter at own risk'",riverBank,null,null,null,null,null,null,null,null,null);
 
         nLink = inFrontOfHome;
         alleyLink = alley3;
+        caveLink = caveEntrance;
     }
 
-    public Room getNLink(){
-        return nLink;
-    }
-
+    public Room getNLink(){return nLink;}
     public Room getAlleyLink(){return alleyLink;}
+    public Room getCaveLink(){return caveLink;}
 }

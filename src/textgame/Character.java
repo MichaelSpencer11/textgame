@@ -7,6 +7,7 @@ import textgame.armors.Armor;
 import textgame.battle.*;
 import textgame.items.*;
 import textgame.jobs.*;
+import textgame.spells.Spell;
 import textgame.weapons.*;
 
 public class Character {
@@ -2532,6 +2533,12 @@ public String nothingOverThere() {
 	public void setBlockValue(int blockValue){
 		this.blockValue = blockValue;
 	}
+
+    public void cast(String inputString) {
+		for(Spell s : this.job.getSpells()){
+			
+		}
+    }
 
 
     //public String getPronoun() {

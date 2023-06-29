@@ -69,6 +69,9 @@ public class Input{
             else if(inputString.length() > 3 && inputString.substring(0,4).equals("wake")) {
             	thisPlayer.wake();
             }
+            else if(inputString.length() > 3 && inputString.substring(0,4).equals("cast")) {
+            	thisPlayer.cast(inputString.substring(5));
+            }
             else if(inputString.length() > 3 && inputString.substring(0,4).equals("open")){
                 thisPlayer.open(inputString);
             }

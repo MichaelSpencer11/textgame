@@ -7,6 +7,7 @@ import textgame.Item;
 import textgame.Door;
 import textgame.items.*;
 import textgame.monsters.*;
+import textgame.regions.Cave1;
 import textgame.regions.PlayerHome;
 import textgame.regions.Region;
 import textgame.regions.TsiporimTown;
@@ -27,8 +28,11 @@ public class World {
 	}
 
 	private static ArrayList<ShopKeep> globalShopKeepList = new ArrayList<ShopKeep>();
+
+	//regions
 	PlayerHome playerHome;
 	TsiporimTown tsiporimTown;
+	Cave1 cave1;
 
 	public static String aAn(String thing) {
 		if(thing.toLowerCase().startsWith("a") ||
@@ -83,23 +87,34 @@ public class World {
 		public void createWorld() {
 
 			//create regions
-			
+			System.out.println("Creating regions...");
 			playerHome = new PlayerHome(this);
 			tsiporimTown = new TsiporimTown(this);
+			cave1 = new Cave1(this);
 
 			//link regions
+			System.out.println("Linking regions...");
+			//playerhome and tsiporim town via front lawn
 			playerHome.getSLink().setsRoom(tsiporimTown.getNLink());
 			playerHome.getSLink().getAdjacentRooms().add(tsiporimTown.getNLink());
 			playerHome.getSLink().setHasS(true);
 			tsiporimTown.getNLink().setnRoom(playerHome.getSLink());
 			tsiporimTown.getNLink().getAdjacentRooms().add(playerHome.getSLink());
 			tsiporimTown.getNLink().setHasN(true);
+			//playerhome and tsiporimtown via back alley
 			playerHome.getBackyardLink().setnRoom(tsiporimTown.getAlleyLink());
 			playerHome.getBackyardLink().getAdjacentRooms().add(tsiporimTown.getAlleyLink());
 			playerHome.getBackyardLink().setHasN(true);
 			tsiporimTown.getAlleyLink().setsRoom(playerHome.getBackyardLink());
 			tsiporimTown.getAlleyLink().getAdjacentRooms().add(playerHome.getBackyardLink());
 			tsiporimTown.getAlleyLink().setHasS(true);
+			//cave and tsiporimtown via cave entrance
+			cave1.getOutLink().setnRoom(tsiporimTown.getCaveLink());
+			cave1.getOutLink().getAdjacentRooms().add(tsiporimTown.getCaveLink());
+			cave1.getOutLink().setHasN(true);
+			tsiporimTown.getCaveLink().setsRoom(cave1.getOutLink());
+			tsiporimTown.getCaveLink().getAdjacentRooms().add(cave1.getOutLink());
+			tsiporimTown.getCaveLink().setHasS(true);
 
 		    Input input = new Input(playerHome.getPlayer());
 		    input.input();
