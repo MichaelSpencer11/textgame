@@ -30,7 +30,7 @@ public class WhiteMage extends Job {
 		this.evade = 13;
 		this.defMod = 2;
 		this.abilities = new ArrayList<Ability>();
-		this.spells = new ArrayList<>();
+		this.spells = new ArrayList<Spell>();
 		this.attack = new Ability("a: Attack");
 		this.magic = new Ability("m: Magic");
 		this.item = new Ability("i: Item");
@@ -42,7 +42,7 @@ public class WhiteMage extends Job {
 	}
 
 	public void setMaxHp(int newLevel){
-		maxHp = (int)Math.floor((.18 + (newLevel / 12.0)) * 100 );
+		maxHp = (int)Math.floor((.18 + (newLevel / 12.0)) * 100 /*battle length*/ * 3 );
 		hp = maxHp;
 	}
 
@@ -67,4 +67,7 @@ public class WhiteMage extends Job {
 			System.out.println(a.getName());
 		}
 	}
+
+	@Override
+	public ArrayList<Spell> getSpells(){return spells;}
 }

@@ -37,7 +37,7 @@ public class Monk extends Job {
 	}
 
 	public void setMaxHp(int newLevel){
-		maxHp = (int)Math.floor((.28 + (newLevel / 8.0)) * 100 );
+		maxHp = (int)Math.floor((.28 + (newLevel / 8.0)) * 100 * /*battle length */ 3 );
 		hp = maxHp;
 	}
 
@@ -55,6 +55,11 @@ public class Monk extends Job {
 		for (Ability a : abilities){
 			System.out.println(a.getName());
 		}
+	}
+
+	public void setIntelligence(int newLevel)
+	{
+		intelligence = 39 + newLevel;
 	}
 	
 }

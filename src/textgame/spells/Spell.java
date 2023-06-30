@@ -1,5 +1,6 @@
 package textgame.spells;
 
+import textgame.Character;
 import textgame.battle.Battle;
 import textgame.elements.Element;
 
@@ -35,4 +36,5 @@ public abstract class Spell {
     }
 
     public abstract void cast(Battle battle);
+    public abstract void cast(Character source, Character target);
 }

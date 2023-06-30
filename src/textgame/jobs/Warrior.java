@@ -59,4 +59,9 @@ public class Warrior extends Job {
 			System.out.println(a.getName());
 		}
 	}
+
+	public void setIntelligence(int newLevel)
+	{
+		intelligence = 35 + newLevel;
+	}
 }

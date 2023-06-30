@@ -18,6 +18,7 @@ public abstract class Job {
 	protected int maxExp;
 	protected int vigor;
 	protected int intelligence;
+	protected int vitality;
 	protected int speed;
 	protected int stamina;
 	protected int magicPower;
@@ -65,8 +66,10 @@ public abstract class Job {
 	public abstract void setMaxHp(int newLevel);
 	public abstract void setMaxMp(int newLevel);
 	public abstract void setVigor(int newLevel);
-	public void setDefense(int level){
+	public void setDefenseForLevelUp(int level){
 		this.defense = (level + 1) * 10;
+		//add armors' defense back in
+		
 	}
 	public int getDefMod(){return defMod;}
 	public String typeToString(){
@@ -89,6 +92,11 @@ public abstract class Job {
 	public int getMBlock(){return mBlock;}
 	public int getEvade(){return evade;}
 	public int getIntelligence(){return intelligence;}
+	public int getVitality(){return vitality;}
+	public void setConForLevelUp(int level){
+		this.vitality = (level + 1) * 10;
+	}
+	public void setConstitution(int vit){this.vitality = vit;}
 	public ArrayList<Spell> getSpells(){return spells;}
 
 	public void setHp(int hp) {
@@ -100,6 +108,10 @@ public abstract class Job {
 	}
 
 	public int getIntel() {return intelligence;}
+
+	public abstract void setIntelligence(int level);
+
+	public void setDefense(int defense){this.defense = defense;}
 }
 
 

@@ -1,5 +1,6 @@
 package textgame.spells;
 
+import textgame.Character;
 import textgame.ConsoleColors;
 import textgame.Random;
 import textgame.battle.Battle;
@@ -34,4 +35,6 @@ public class Fire extends Spell{
         }
 
     }
+
+    public void cast(Character source, Character target){}
 }

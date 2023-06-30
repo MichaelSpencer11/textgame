@@ -40,7 +40,7 @@ public class RedMage extends Job {
 	}
 
 	public void setMaxHp(int newLevel){
-		maxHp = (int)Math.floor((.24 + (newLevel / 9.0)) * 100 );
+		maxHp = (int)Math.floor((.24 + (newLevel / 9.0)) * 100 /*battle length */ * 3 );
 		hp = maxHp;
 	}
 

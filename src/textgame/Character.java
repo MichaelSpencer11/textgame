@@ -117,7 +117,7 @@ public class Character {
 		monk = new Monk();
 		whiteMage = new WhiteMage();
 		blackMage = new BlackMage();
-		this.job = blackMage;
+		this.job = whiteMage;
 		final Weapon ceramicSword = new Weapon("Ceramic Sword",2,425,14);
 		this.mainHand = ceramicSword;
 		this.inventory.add(ceramicSword);
@@ -1675,12 +1675,15 @@ public String nothingOverThere() {
 						System.out.println(i.itemName + " : " + ConsoleColors.YELLOW + i.getGpValue() + "GP" + ConsoleColors.CYAN + " : y/n");
 						System.out.print(ConsoleColors.GREEN + ">>>" + ConsoleColors.RESET);
 						if (sc.nextLine().equalsIgnoreCase("y")) {
-							//armor and weapon copy
+							// copy
 							if(i instanceof Armor){
 								Armor j = new Armor((Armor) i);
 								this.getInventory().add(j);
 							}else if(i instanceof Weapon){
 								Weapon j = new Weapon((Weapon) i);
+								this.getInventory().add(j);
+							} else if(i instanceof Item){
+								Item j = new Item((Item) i);
 								this.getInventory().add(j);
 							}
 							this.setGp(this.getGp() - i.getGpValue());
@@ -2422,10 +2425,10 @@ public String nothingOverThere() {
 		String substring1 = inputString.substring(4);
 		String secondWord = substring1.substring(0,substring1.indexOf('/'));
 		String thirdWord = substring1.substring(substring1.indexOf('/') + 1);
-		//System.out.println("inputString: " + "{" + inputString + "}");
-		//System.out.println("substring1: " + "{" + substring1 + "}");
-		//System.out.println("secondWord: " + "{" + secondWord + "}");
-		//System.out.println("thirdWord: " + "{" + thirdWord + "}");
+		System.out.println("inputString: " + "{" + inputString + "}");
+		System.out.println("substring1: " + "{" + substring1 + "}");
+		System.out.println("secondWord: " + "{" + secondWord + "}");
+		System.out.println("thirdWord: " + "{" + thirdWord + "}");
 		for(Character c : player.currentRoom.people){
 			if(thirdWord.equalsIgnoreCase(c.name)){
 				targetCharacter = c;
@@ -2514,6 +2517,7 @@ public String nothingOverThere() {
 	public int getLevel(){return job.getLevel();}
 	public int getMagicPower(){return job.getMagicPower();}
 	public int getCritChance(){return Random.roll(1,32);}
+	
 
 	public void applyDamage(int damage){
 		this.hp = this.hp - damage;
@@ -2534,10 +2538,37 @@ public String nothingOverThere() {
 		this.blockValue = blockValue;
 	}
 
-    public void cast(String inputString) {
-		for(Spell s : this.job.getSpells()){
-			
+    public void cast(String inputString, Character sourceCharacter) {
+		Spell targetSpell = null;
+		Character targetCharacter = null;
+		String secondWord = inputString.substring(0,inputString.indexOf(' '));
+		String thirdWord = inputString.substring(inputString.indexOf(' ') + 1);
+		System.out.println("inputString: " + "{" + inputString + "}");
+		System.out.println("secondWord: " + "{" + secondWord + "}");
+		System.out.println("thirdWord: " + "{" + thirdWord + "}");
+		for(Character c : sourceCharacter.currentRoom.people){
+			if(thirdWord.equalsIgnoreCase(c.name)){
+				targetCharacter = c;
+			}
 		}
+
+		if(targetCharacter == null){
+			System.out.println("Character not found.");
+		}
+		
+		
+		for(Spell i : sourceCharacter.getJob().getSpells()){
+			if(secondWord.equalsIgnoreCase(i.getName())){
+				targetSpell = i;
+			}
+		}
+
+		if(targetSpell == null){
+			System.out.println("Spell not found.");
+		}
+
+		targetSpell.cast(sourceCharacter, targetCharacter);
+		System.out.println("Used " + targetSpell.getName() + " on " + targetCharacter.getName());
     }
 
 

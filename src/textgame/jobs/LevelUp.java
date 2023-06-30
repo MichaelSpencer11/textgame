@@ -18,7 +18,9 @@ public class LevelUp {
         //set new vigor
         job.setVigor(job.getLevel());
         //set new defense
-        job.setDefense(job.getLevel());
+        job.setConForLevelUp(job.getLevel());
+        //set new intelligence
+        job.setIntelligence(job.getLevel());
 
         if(job instanceof BlackMage){
             if(job.getLevel() == 5){

@@ -51,7 +51,7 @@ public class Thief extends Job {
 	}
 
 	public void setMaxHp(int newLevel){
-		maxHp = (int)Math.floor((.2 + (newLevel / 10.0) ) * 100);
+		maxHp = (int)Math.floor((.2 + (newLevel / 10.0) ) * 100 /*battle length */ * 3);
 		hp = maxHp;
 	}
 
@@ -69,6 +69,11 @@ public class Thief extends Job {
 		for (Ability a : abilities){
 			System.out.println(a.getName());
 		}
+	}
+
+	public void setIntelligence(int newLevel)
+	{
+		intelligence = 38 + newLevel;
 	}
 
 }

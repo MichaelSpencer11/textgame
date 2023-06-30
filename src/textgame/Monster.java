@@ -475,6 +475,6 @@ public class Monster {
 	}
 
 	public void setStartingXp(int level){
-		xp = (int) ((level * level ) + Random.roll((int)level /2,level*2));
+		xp = (int) ((level * level ) + Random.roll((int)level / 2,level * 2));
 	}
 }
