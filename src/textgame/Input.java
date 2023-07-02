@@ -55,6 +55,10 @@ public class Input{
                 thisPlayer.currentParty.listMembers();
             }
             else if(inputString.equals("battle")){
+                if(thisPlayer.asleep || thisPlayer.rest.isResting()){
+                    System.out.println("You cannot battle while resting or asleep.");
+                    return;
+                }
                 new Battle(thisPlayer, thisPlayer.getTarget(), thisPlayer.getCurrentRoom());
             }
             else if (inputString.length() > 3 && inputString.substring(0,4).equals("exit")){
@@ -68,6 +72,9 @@ public class Input{
             }
             else if(inputString.length() > 3 && inputString.substring(0,4).equals("wake")) {
             	thisPlayer.wake();
+            }
+            else if(inputString.length() > 3 && inputString.substring(0,4).equals("rest")) {
+                thisPlayer.rest();
             }
             else if(inputString.length() > 3 && inputString.substring(0,4).equals("cast")) {
             	thisPlayer.cast(inputString.substring(5), thisPlayer);

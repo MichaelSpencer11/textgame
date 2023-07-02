@@ -18,29 +18,29 @@ public class Armor extends Item {
         this.dropRate = 85;
         this.itemName = rarity + " " + name;
         if(this.type.equalsIgnoreCase("feet")){
-            defense = (level * 14) * (int)Math.ceil(.15);
+            defense = (int) (level * 14 * .15);
         }else if(this.type.equalsIgnoreCase("hands")){
-            defense = (level * 14) * (int)Math.ceil(.2);
+            defense = (int) (level * 14 * .2);
         }else if(this.type.equalsIgnoreCase("legs")){
-            defense = (level * 14) * (int)Math.ceil(.2);
+            defense = (int)(level * 14 * .2);
         }else if(this.type.equalsIgnoreCase("body")){
-            defense = (level * 14) * (int)Math.ceil(.25);
+            defense = (int)(level * 14 * .25);
         }else if(this.type.equalsIgnoreCase("head")){
-            defense = (level * 14) * (int)Math.ceil(.2);
+            defense = (int) (level * 14 * .2);
         }
 
         if(this.rarity.equalsIgnoreCase("ultra")){
-            defense = defense * (int)Math.ceil(3);
+            defense = defense * 3;
         } else if(this.rarity.equalsIgnoreCase("legendary")){
-            defense = this.defense * (int)Math.ceil(2);
+            defense = this.defense * 2;
         }else if(this.rarity.equalsIgnoreCase("rare")){
-            this.defense = this.defense * (int)Math.ceil(1.8);
+            this.defense = (int)(this.defense * 1.8);
         }else if(this.rarity.equalsIgnoreCase("exceptional")){
-            this.defense = this.defense * (int)Math.ceil(1.6);
+            this.defense = (int)(this.defense * 1.6);
         }else if(this.rarity.equalsIgnoreCase("fine")){
-            this.defense = this.defense * (int)Math.ceil(1.4);
+            this.defense = (int)(this.defense * 1.4);
         }else if(this.rarity.equalsIgnoreCase("common")){
-            this.defense = this.defense * (int)Math.ceil(1.2);
+            this.defense = (int)(this.defense * 1.2);
         }else if(this.rarity.equalsIgnoreCase("coarse")){
 
         }

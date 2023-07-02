@@ -63,4 +63,9 @@ public class Polymorph extends Job {
 			System.out.println(a.getName());
 		}
 	}
+
+	public void setIntelligence(int newLevel)
+	{
+		intelligence = 39 + newLevel;
+	}
 }

@@ -27,28 +27,48 @@ public class Weapon extends Item{
 	public int getHitRate() {return hitRate;}
 	public int getDelay(){return delay;}
 
-	public Weapon(String name, int lvl, int dly, int batPow){
+	public Weapon(String name, int lvl, String type){
 		this.setRarity();
 		this.itemName = rarity + " " + name;
-		this.type = "weapon";
+		this.type = type;
 		this.hitRate = 100;
 		this.level = lvl;
-		this.delay = dly;
+
+		if(type.equalsIgnoreCase("dagger")){
+			this.delay = 250;
+			this.battlePower = (int) (((level + 2) * 5) * .6);
+		} else if(type.equalsIgnoreCase("cesti")){
+			this.delay = 400;
+			this.battlePower = (int) (((level + 2) * 5) * 1);
+		} else if(type.equalsIgnoreCase("axe")){
+			this.delay = 500;
+			this.battlePower = (int) (((level + 2) * 5) * 1);
+		} else if(type.equalsIgnoreCase("staff")){
+			this.delay = 300;
+			this.battlePower = (int) (((level + 2) * 5) * .7);
+		} else if(type.equalsIgnoreCase("rod")){
+			this.delay = 300;
+			this.battlePower = (int) (((level + 2) * 5) * .7);
+		} else if(type.equalsIgnoreCase("sword")){
+			this.delay = 425;
+			this.battlePower = (int) (((level + 2) * 5) * .85);
+		}
+
 		this.dropRate = 85;
 		if(this.rarity.equalsIgnoreCase("ultra")){
-			this.battlePower = (int)Math.ceil(batPow * 3);
+			this.battlePower = battlePower * 3;
 		} else if(this.rarity.equalsIgnoreCase("legendary")){
-			this.battlePower = (int)Math.ceil(batPow * 2);
+			this.battlePower = battlePower * 2;
 		}else if(this.rarity.equalsIgnoreCase("rare")){
-			this.battlePower = (int)Math.ceil(batPow * 1.8);
+			this.battlePower = (int)(battlePower * 1.8);
 		}else if(this.rarity.equalsIgnoreCase("exceptional")){
-			this.battlePower = (int)Math.ceil(batPow * 1.6);
+			this.battlePower = (int)(battlePower * 1.6);
 		}else if(this.rarity.equalsIgnoreCase("fine")){
-			this.battlePower = (int)Math.ceil(batPow * 1.4);
+			this.battlePower = (int)(battlePower * 1.4);
 		}else if(this.rarity.equalsIgnoreCase("common")){
-			this.battlePower = (int)Math.ceil(batPow * 1.2);
+			this.battlePower = (int)(battlePower * 1.2);
 		}else if(this.rarity.equalsIgnoreCase("coarse")){
-			this.battlePower = batPow ;
+
 		}
 
 		this.gpValue = battlePower * 20;

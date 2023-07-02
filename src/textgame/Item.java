@@ -91,11 +91,9 @@ public class Item{
 		public int getDropRate() {
 			return this.dropRate;
 		}
-		
 		public String getItemName() {
 			return itemName;
 		}
-
 		public String getType(){
 			return type;
 		}

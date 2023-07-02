@@ -9,7 +9,6 @@ public class MonsterAttack extends Action {
     protected int attack;
     protected int damage;
     protected double dmg;
-    protected int damageMultiplier;
     public MonsterAttack(Battle battle){
         this.battleContext = battle;
         int bp = battleContext.getMonster().getBattlePower();
@@ -52,7 +51,7 @@ public class MonsterAttack extends Action {
 
         // }
         
-        if((battleContext.getMonster().getHitRate() * battleContext.getPlayer().getBlockValue()) >= Random.roll(1,100)){
+        if((battleContext.getMonster().getHitRate() >= Random.roll(1,100))){
             return true;
         }
 

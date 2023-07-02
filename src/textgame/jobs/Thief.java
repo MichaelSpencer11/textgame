@@ -27,7 +27,8 @@ public class Thief extends Job {
 		this.stamina = 31;
 		this.magicPower = 28;
 		this.battlePower = 14;
-		this.defense = 38;
+		this.vitality = 38;
+		this.defense = vitality;
 		this.magicDefense = 23;
 		this.mBlock = 2;
 		this.evade = 15;

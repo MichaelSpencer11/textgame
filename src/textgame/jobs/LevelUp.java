@@ -1,43 +1,50 @@
 package textgame.jobs;
 
+import textgame.Character;
 import textgame.ConsoleColors;
 
 public class LevelUp {
-    public LevelUp(Job job, int exp, int maxExp ){
+    public LevelUp(Character player, int exp, int maxExp ){
         System.out.println(ConsoleColors.BLUE + "Level Up!" + ConsoleColors.RESET);
         //carry over exp from previous level
         exp = exp - maxExp;
         //level up
-        job.setLevel(job.getLevel() + 1);
+        player.getJob().setLevel(player.getJob().getLevel() + 1);
         //set new exp need for next level up
-        job.setMaxExp(job.getLevel());
+        player.getJob().setMaxExp(player.getJob().getLevel());
         //set new hp
-        job.setMaxHp(job.getLevel());
+        player.getJob().setMaxHp(player.getJob().getLevel());
         //set new mp
-        job.setMaxMp(job.getLevel());
+        player.getJob().setMaxMp(player.getJob().getLevel());
         //set new vigor
-        job.setVigor(job.getLevel());
-        //set new defense
-        job.setConForLevelUp(job.getLevel());
+        player.getJob().setVigor(player.getJob().getLevel());
+        //set new vit and defense
+        player.getJob().setVitForLevelUp(player.getJob().getLevel());
+        player.getJob().setDefense(player.getJob().getVitality() +
+                player.getHead().getDefense() +
+                player.getBody().getDefense() +
+                player.getHands().getDefense() +
+                player.getLegs().getDefense() +
+                player.getFeet().getDefense());
         //set new intelligence
-        job.setIntelligence(job.getLevel());
+        player.getJob().setIntelligence(player.getJob().getLevel());
 
-        if(job instanceof BlackMage){
-            if(job.getLevel() == 5){
-                job.spells.add(((BlackMage) job).ice);
-            } else if (job.getLevel() == 10) {
-                job.spells.add(((BlackMage) job).bolt);
+        if(player.getJob() instanceof BlackMage){
+            if(player.getJob().getLevel() == 5){
+                player.getJob().spells.add(((BlackMage) player.getJob()).ice);
+            } else if (player.getJob().getLevel() == 10) {
+                player.getJob().spells.add(((BlackMage) player.getJob()).bolt);
             }
 
-        } else if (job instanceof WhiteMage) {
+        } else if (player.getJob() instanceof WhiteMage) {
 
-        } else if (job instanceof RedMage) {
+        } else if (player.getJob() instanceof RedMage) {
 
-        } else if (job instanceof Warrior) {
+        } else if (player.getJob() instanceof Warrior) {
 
-        } else if (job instanceof Monk) {
+        } else if (player.getJob() instanceof Monk) {
 
-        } else if (job instanceof Thief) {
+        } else if (player.getJob() instanceof Thief) {
 
         }
 

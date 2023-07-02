@@ -46,12 +46,7 @@ public abstract class Job {
 		}
 	}
 
-	public void addExp(int exp){
-		this.exp += exp;
-		if(this.exp >= maxExp){
-			new LevelUp(this, exp, maxExp);
-		}
-	}
+
 
 	public void applyDamage(int damage){
 		this.hp = this.hp - damage;
@@ -93,7 +88,7 @@ public abstract class Job {
 	public int getEvade(){return evade;}
 	public int getIntelligence(){return intelligence;}
 	public int getVitality(){return vitality;}
-	public void setConForLevelUp(int level){
+	public void setVitForLevelUp(int level){
 		this.vitality = (level + 1) * 10;
 	}
 	public void setConstitution(int vit){this.vitality = vit;}
@@ -112,6 +107,10 @@ public abstract class Job {
 	public abstract void setIntelligence(int level);
 
 	public void setDefense(int defense){this.defense = defense;}
+
+	public void setExp(int exp) {
+		this.exp = exp;
+	}
 }
 
 

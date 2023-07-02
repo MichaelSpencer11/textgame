@@ -47,10 +47,9 @@ public class PlayerMagicCast extends Action {
 		// if(battleContext.getMonster().getImage()){
 
 		// }
-		if(battleContext.getMonster().getBlockValue() > 255){battleContext.getPlayer().setBlockValue(255);}
-		if(battleContext.getMonster().getBlockValue() < 1){battleContext.getPlayer().setBlockValue(1);}
 
-		if((battleContext.getPlayer().getMainHand().getHitRate() * battleContext.getMonster().getBlockValue()) >= (int) Random.roll(0,99)){
+
+		if((battleContext.getPlayer().getMainHand().getHitRate()  >= (int) Random.roll(0,99))){
 			return true;
 		}
 

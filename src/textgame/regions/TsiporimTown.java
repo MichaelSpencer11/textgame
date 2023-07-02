@@ -67,11 +67,11 @@ public class TsiporimTown extends Region {
                                                 new Armor("Ceramic Helm", 2,"head",3),
                                                 new Armor("Ceramic Leggings",2,"legs",3),
                                                 new Armor("Ceramic Vest",2,"body",3),
-                                                new Weapon("Ceramic Sword",2,425,17),
-                                                new Weapon("Ceramic Dagger",2,250,12),
-                                                new Weapon("Staff",2,300,14),
-                                                new Weapon("Knuckles",2,400,20),
-                                                new Weapon("Rod",2,300,14));
+                                                new Weapon("Ceramic Sword",2,"sword"),
+                                                new Weapon("Ceramic Dagger",2,"dagger"),
+                                                new Weapon("Staff",2,"staff"),
+                                                new Weapon("Cesti",2,"cesti"),
+                                                new Weapon("Rod",2,"rod"));
         Room anotherArtGallery = new Room("interior", "Another Art Gallery", "The art gallery has walls filled with paintings and the space is nicely apportioned with sculptures of various things.",null,null,null,null,eastPeregrine2,null,null,null,null,null);
         Room schoolEntrance = new Room("interior", "School entrance", "The main lobby of the local school. Pictures and trophies of student accomplishments line the walls of this processing room where records are created and administrative activities happen.",null,null,null,null,null,null,mainAndSchool,null,null,null);
         Room burgerTime = new Room("interior","BurgerTime","The burger shop in town, this place serves up a lot of burgers to feed people. Good prices too.",null,null,null,null,null,null,mainAndBurgertime,null,null,null);

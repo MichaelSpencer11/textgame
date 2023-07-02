@@ -43,24 +43,10 @@ public class Character {
 	protected boolean berserked;
 	protected boolean protect;
 
-	public void setHp(int hp) {
-		this.hp = hp;
-	}
+	protected Rest rest;
 
 	//stats
-	protected int hp;
-	protected int mp;
-	protected int vigor;
-	protected int speed;
-	protected int stamina;
-	protected int magicPower;
-	protected int battlePower;
-	protected int defense;
-	protected int magicDefense;
-	protected int mBlock;
-	protected int evade;
 	protected int gp;
-	protected int blockValue = (255 - this.getMBlock() * 2) + 1;
 	protected int critChance;
     
     //location and other stuff
@@ -73,11 +59,11 @@ public class Character {
     protected int invLength = 38;
     protected boolean hasName;
 	protected Monster target;
-    
-    //equipped items
+
+	//equipped items
     protected Item mainHand;
-    protected Item offHand;
-    protected Item head;
+	protected Item offHand;
+	protected Item head;
     protected Item hands;
     protected Item body;
     protected Item back;
@@ -111,26 +97,28 @@ public class Character {
         this.prone = false;
         this.sitting = false;
         this.standing = true;
+		this.rest = new Rest(this);
+		this.rest.t.start();
 		warrior = new Warrior();
 		redMage = new RedMage();
 		thief = new Thief();
 		monk = new Monk();
 		whiteMage = new WhiteMage();
 		blackMage = new BlackMage();
-		this.job = whiteMage;
-		final Weapon ceramicSword = new Weapon("Ceramic Sword",2,425,14);
-		this.mainHand = ceramicSword;
-		this.inventory.add(ceramicSword);
+		this.job = thief;
+		final Weapon ceramicDagger = new Weapon("Ceramic Dagger",2,"dagger");
+		this.mainHand = ceramicDagger;
+		this.inventory.add(ceramicDagger);
 		final Tonic potion = new Tonic("Potion",2);
 		this.inventory.add(potion);
-		ceramicSword.equipped = true;
+		ceramicDagger.equipped = true;
         firstRoom.people.add(this);
         this.currentRoom = firstRoom;
 		this.homePoint = firstRoom;
         this.thoughts = new ArrayList<String>();
 		this.gp = 10000;
         
-        
+
     }
     
     //For nameless characters with a type, like monsters or something
@@ -1346,7 +1334,7 @@ public String nothingOverThere() {
 						else{
 							i.equipped = true;
 							this.head = i;
-							this.getJob().setDefense(this.getJob().getDefense() + i.getDefense());
+
 						}
 					} else if (i.getType().equalsIgnoreCase("body") && i.getWeight() == 1) {
 						if(this.body != null && this.body.getItemName().equalsIgnoreCase(i.getItemName())) {
@@ -1355,7 +1343,6 @@ public String nothingOverThere() {
 						else{
 							i.equipped = true;
 							this.body = i;
-							this.getJob().setDefense(this.getJob().getDefense() + i.getDefense());
 						}
 					} else if (i.getType().equalsIgnoreCase("hands") && i.getWeight() == 1) {
 						if(this.hands != null && this.hands.getItemName().equalsIgnoreCase(i.getItemName())) {
@@ -1364,7 +1351,6 @@ public String nothingOverThere() {
 						else{
 							i.equipped = true;
 							this.hands = i;
-							this.getJob().setDefense(this.getJob().getDefense() + i.getDefense());
 						}
 					} else if (i.getType().equalsIgnoreCase("legs") && i.getWeight() == 1) {
 						if(this.legs != null && this.legs.getItemName().equalsIgnoreCase(i.getItemName())) {
@@ -1373,7 +1359,6 @@ public String nothingOverThere() {
 						else{
 							i.equipped = true;
 							this.legs = i;
-							this.getJob().setDefense(this.getJob().getDefense() + i.getDefense());
 						}
 					} else if (i.getType().equalsIgnoreCase("feet") && i.getWeight() == 1) {
 						if(this.feet != null && this.feet.getItemName().equalsIgnoreCase(i.getItemName())) {
@@ -1382,7 +1367,6 @@ public String nothingOverThere() {
 						else{
 							i.equipped = true;
 							this.feet = i;
-							this.getJob().setDefense(this.getJob().getDefense() + i.getDefense());
 						}
 					} else if (i.getType().equalsIgnoreCase("weapon")) {
 						if(this.mainHand != null && this.mainHand.getItemName().equalsIgnoreCase(i.getItemName())) {
@@ -1391,7 +1375,7 @@ public String nothingOverThere() {
 						else{
 							i.equipped = true;
 							this.mainHand = i;
-							this.getJob().setDefense(this.getJob().getDefense() + i.getDefense());
+
 						}
 					} else if (i.getType().equalsIgnoreCase("shield")) {
 						if(this.offHand != null && this.offHand.getItemName().equalsIgnoreCase(i.getItemName())) {
@@ -1400,7 +1384,6 @@ public String nothingOverThere() {
 						else{
 							i.equipped = true;
 							this.offHand = i;
-							this.getJob().setDefense(this.getJob().getDefense() + i.getDefense());
 						}
 					}
 					System.out.println("You equip the " + i.getItemName() + ".");
@@ -1414,7 +1397,6 @@ public String nothingOverThere() {
 						else{
 							i.equipped = true;
 							this.head = i;
-							this.getJob().setDefense(this.getJob().getDefense() + i.getDefense());
 						}
 					} else if (i.getType().equalsIgnoreCase("body") && (i.getWeight() == 2 || i.getWeight() == 1)) {
 						if(this.body != null && this.body.getItemName().equalsIgnoreCase(i.getItemName())) {
@@ -1423,7 +1405,6 @@ public String nothingOverThere() {
 						else{
 							i.equipped = true;
 							this.body = i;
-							this.getJob().setDefense(this.getJob().getDefense() + i.getDefense());
 						}
 					} else if (i.getType().equalsIgnoreCase("hands") && (i.getWeight() == 2 || i.getWeight() == 1)) {
 						if(this.hands != null && this.hands.getItemName().equalsIgnoreCase(i.getItemName())) {
@@ -1432,7 +1413,6 @@ public String nothingOverThere() {
 						else{
 							i.equipped = true;
 							this.hands = i;
-							this.getJob().setDefense(this.getJob().getDefense() + i.getDefense());
 						}
 					} else if (i.getType().equalsIgnoreCase("legs") && (i.getWeight() == 2 || i.getWeight() == 1)) {
 						if(this.legs != null && this.legs.getItemName().equalsIgnoreCase(i.getItemName())) {
@@ -1441,7 +1421,6 @@ public String nothingOverThere() {
 						else{
 							i.equipped = true;
 							this.legs = i;
-							this.getJob().setDefense(this.getJob().getDefense() + i.getDefense());
 						}
 					} else if (i.getType().equalsIgnoreCase("feet") && (i.getWeight() == 2 || i.getWeight() == 1)) {
 						if(this.feet != null && this.feet.getItemName().equalsIgnoreCase(i.getItemName())) {
@@ -1450,7 +1429,6 @@ public String nothingOverThere() {
 						else{
 							i.equipped = true;
 							this.feet = i;
-							this.getJob().setDefense(this.getJob().getDefense() + i.getDefense());
 						}
 					} else if (i.getType().equalsIgnoreCase("weapon")) {
 						if(this.mainHand != null && this.mainHand.getItemName().equalsIgnoreCase(i.getItemName())) {
@@ -1459,7 +1437,6 @@ public String nothingOverThere() {
 						else{
 							i.equipped = true;
 							this.mainHand = i;
-							this.getJob().setDefense(this.getJob().getDefense() + i.getDefense());
 						}
 					} else if (i.getType().equalsIgnoreCase("shield")) {
 						if(this.offHand != null && this.offHand.getItemName().equalsIgnoreCase(i.getItemName())) {
@@ -1468,7 +1445,6 @@ public String nothingOverThere() {
 						else{
 							i.equipped = true;
 							this.offHand = i;
-							this.getJob().setDefense(this.getJob().getDefense() + i.getDefense());
 						}
 					}
 					System.out.println("You equip the " + i.getItemName() + ".");
@@ -1481,7 +1457,6 @@ public String nothingOverThere() {
 						else{
 							i.equipped = true;
 							this.head = i;
-							this.getJob().setDefense(this.getJob().getDefense() + i.getDefense());
 						}
 					} else if (i.getType().equalsIgnoreCase("body") && i.getWeight() == 3) {
 						if(this.body != null && this.body.getItemName().equalsIgnoreCase(i.getItemName())) {
@@ -1490,7 +1465,6 @@ public String nothingOverThere() {
 						else{
 							i.equipped = true;
 							this.body = i;
-							this.getJob().setDefense(this.getJob().getDefense() + i.getDefense());
 						}
 					} else if (i.getType().equalsIgnoreCase("hands") && i.getWeight() == 3) {
 						if(this.hands != null && this.hands.getItemName().equalsIgnoreCase(i.getItemName())) {
@@ -1499,7 +1473,6 @@ public String nothingOverThere() {
 						else{
 							i.equipped = true;
 							this.hands = i;
-							this.getJob().setDefense(this.getJob().getDefense() + i.getDefense());
 						}
 					} else if (i.getType().equalsIgnoreCase("legs") && i.getWeight() == 3) {
 						if(this.legs != null && this.legs.getItemName().equalsIgnoreCase(i.getItemName())) {
@@ -1508,7 +1481,6 @@ public String nothingOverThere() {
 						else{
 							i.equipped = true;
 							this.legs = i;
-							this.getJob().setDefense(this.getJob().getDefense() + i.getDefense());
 						}
 					} else if (i.getType().equalsIgnoreCase("feet") && i.getWeight() == 3) {
 						if(this.feet != null && this.feet.getItemName().equalsIgnoreCase(i.getItemName())) {
@@ -1517,7 +1489,6 @@ public String nothingOverThere() {
 						else{
 							i.equipped = true;
 							this.feet = i;
-							this.getJob().setDefense(this.getJob().getDefense() + i.getDefense());
 						}
 					} else if (i.getType().equalsIgnoreCase("weapon")) {
 						if(this.mainHand != null && this.mainHand.getItemName().equalsIgnoreCase(i.getItemName())) {
@@ -1526,7 +1497,6 @@ public String nothingOverThere() {
 						else{
 							i.equipped = true;
 							this.mainHand = i;
-							this.getJob().setDefense(this.getJob().getDefense() + i.getDefense());
 						}
 					} else if (i.getType().equalsIgnoreCase("shield")) {
 						if(this.offHand != null && this.offHand.getItemName().equalsIgnoreCase(i.getItemName())) {
@@ -1535,7 +1505,6 @@ public String nothingOverThere() {
 						else{
 							i.equipped = true;
 							this.offHand = i;
-							this.getJob().setDefense(this.getJob().getDefense() + i.getDefense());
 						}
 					}
 					System.out.println("You equip the " + i.getItemName() + ".");
@@ -1543,6 +1512,7 @@ public String nothingOverThere() {
 			}
 
 		}
+		calcDef();
 	}
 
     }
@@ -1555,7 +1525,39 @@ public String nothingOverThere() {
     		System.out.println("You can't really do that while asleep.");
     		return;
     	}
-
+		String secondString = inputString.substring(8).trim();
+		System.out.println("inputString:" + inputString);
+		System.out.println("secondString:" + secondString);
+		if(this.getHead().getItemName().equalsIgnoreCase(secondString)){
+			System.out.println("Unequipped head piece: " + this.getHead().getItemName());
+			this.head.setEquipped(false);
+			this.setHead(null);
+		} else if(this.getBody().getItemName().equalsIgnoreCase(secondString)){
+			System.out.println("Unequipped body piece: " + this.getBody().getItemName());
+			this.body.setEquipped(false);
+			this.setBody(null);
+		} else if(this.getHands().getItemName().equalsIgnoreCase(secondString)){
+			System.out.println("Unequipped hand pieces: " + this.getHands().getItemName());
+			this.hands.setEquipped(false);
+			this.setHands(null);
+		} else if(this.getLegs().getItemName().equalsIgnoreCase(secondString)){
+			System.out.println("Unequipped legs piece: " + this.getLegs().getItemName());
+			this.legs.setEquipped(false);
+			this.setLegs(null);
+		} else if(this.getFeet().getItemName().equalsIgnoreCase(secondString)){
+			System.out.println("Unequipped foot pieces: " + this.getFeet().getItemName());
+			this.feet.setEquipped(false);
+			this.setFeet(null);
+		} else if(this.getMainHand().getItemName().equalsIgnoreCase(secondString)){
+			System.out.println("Unequipped main hand weapon: " + this.getMainHand().getItemName());
+			this.mainHand.setEquipped(false);
+			this.setMainHand(null);
+		} else if(this.getOffHand().getItemName().equalsIgnoreCase(secondString)){
+			System.out.println("Unequipped off hand weapon: " + this.getOffHand().getItemName());
+			this.offHand.setEquipped(false);
+			this.setOffHand(null);
+		}
+		calcDef();
 
 
     }
@@ -1687,7 +1689,7 @@ public String nothingOverThere() {
 								this.getInventory().add(j);
 							}
 							this.setGp(this.getGp() - i.getGpValue());
-							System.out.println(ConsoleColors.CYAN + "You buy the " + i.getItemName() + " for " + i.gpValue + "GP." + ConsoleColors.RESET);
+							System.out.println(ConsoleColors.CYAN + "You buy the " + i.getItemName() + " for " + i.getGpValue() + "GP." + ConsoleColors.RESET);
 						} else {
 							System.out.println(ConsoleColors.CYAN + "You decline the purchase." + ConsoleColors.RESET);
 						}
@@ -2249,15 +2251,6 @@ public String nothingOverThere() {
     
     public void changeJob(Job newJob) {
     	this.job = newJob;
-    	this.job.level = newJob.getLevel();
-    	this.vigor = newJob.getVigor();
-    	this.speed = newJob.getSpeed();
-    	this.stamina = newJob.getStamina();
-    	this.magicPower = newJob.getMagicPower();
-    	this.defense = newJob.getDefense();
-    	this.magicDefense = newJob.getMagicDefense();
-    	this.mBlock = newJob.getMBlock();
-    	this.evade = newJob.getEvade();
 
 		if(mainHand != null) {
 			this.mainHand.setEquipped(false);
@@ -2477,6 +2470,11 @@ public String nothingOverThere() {
 			System.out.print(" ");
 		}
 		System.out.println("|");
+		System.out.print("| Vitality: " + this.job.getVitality());
+		for (int j = 0; j < (this.invLength - String.valueOf(job.getVitality()).length()) - 9; j++) {
+			System.out.print(" ");
+		}
+		System.out.println("|");
 		if(this.mainHand != null) {
 			System.out.print("| BattlePower: " + this.getMainHand().getBattlePower());
 			for (int j = 0; j < (this.invLength - String.valueOf(this.getMainHand().getBattlePower()).length()) - 12; j++) {
@@ -2492,24 +2490,41 @@ public String nothingOverThere() {
 		System.out.println("|________________________________________|");
 	}
 
+	public void rest(){
+		if(rest.isResting()){
+			rest.setResting(false);
+			System.out.println("You get up from your rest.");
+		} else {
+			rest.setResting(true);
+			System.out.println("You begin resting.");
 
-	
-	public int getHp() {return hp;}
-	public int getSpeed() {return speed;}
+		}
+	}
+
+
+	public Item getHead() {return head;}
+	public Item getHands() {return hands;}
+	public Item getBody() {return body;}
+	public Item getLegs() {return legs;}
+	public Item getFeet() {return feet;}
+	public Item getOffHand() {return offHand;}
+	public void setMainHand(Item mainHand) {this.mainHand = mainHand;}
+	public void setOffHand(Item offHand) {this.offHand = offHand;}
+	public void setHead(Item head) {this.head = head;}
+	public void setHands(Item hands) {this.hands = hands;}
+	public void setBody(Item body) {this.body = body;}
+	public void setBack(Item back) {this.back = back;}
+	public void setLegs(Item legs) {this.legs = legs;}
+	public void setFeet(Item feet) {this.feet = feet;}
 	public boolean getClear(){return clear;}
 	public boolean getAsleep(){return asleep;}
 	public boolean getPetrify(){return petrified;}
 	public boolean getFrozen(){return frozen;}
 	public boolean getStop(){return stopped;}
-	public int getMBlock(){return mBlock;}
-	public int getBlockValue(){return blockValue;}
 	public Item getMainHand() {return mainHand;}
-	public int getVigor(){return vigor;}
-	public int getVigor2(){return vigor * 2;}
 	public boolean getBerserked(){return berserked;}
 	public boolean getProtect(){return protect;}
 	public int getGp(){return gp;}
-	public int getDefense(){return defense;}
 	public Monster getTarget(){return target;}
 	public void setTarget(Monster monster){target = monster;}
 	public Room getCurrentRoom(){return currentRoom;}
@@ -2517,12 +2532,6 @@ public String nothingOverThere() {
 	public int getLevel(){return job.getLevel();}
 	public int getMagicPower(){return job.getMagicPower();}
 	public int getCritChance(){return Random.roll(1,32);}
-	
-
-	public void applyDamage(int damage){
-		this.hp = this.hp - damage;
-	}
-
 	public void addItem(Item i){
 		this.inventory.add(i);
 	}
@@ -2533,19 +2542,14 @@ public String nothingOverThere() {
 	protected void setGp(int newGp) {
 		this.gp = newGp;
 	}
-
-	public void setBlockValue(int blockValue){
-		this.blockValue = blockValue;
-	}
-
     public void cast(String inputString, Character sourceCharacter) {
 		Spell targetSpell = null;
 		Character targetCharacter = null;
 		String secondWord = inputString.substring(0,inputString.indexOf(' '));
 		String thirdWord = inputString.substring(inputString.indexOf(' ') + 1);
-		System.out.println("inputString: " + "{" + inputString + "}");
-		System.out.println("secondWord: " + "{" + secondWord + "}");
-		System.out.println("thirdWord: " + "{" + thirdWord + "}");
+		//System.out.println("inputString: " + "{" + inputString + "}");
+		//System.out.println("secondWord: " + "{" + secondWord + "}");
+		//System.out.println("thirdWord: " + "{" + thirdWord + "}");
 		for(Character c : sourceCharacter.currentRoom.people){
 			if(thirdWord.equalsIgnoreCase(c.name)){
 				targetCharacter = c;
@@ -2571,6 +2575,33 @@ public String nothingOverThere() {
 		System.out.println("Used " + targetSpell.getName() + " on " + targetCharacter.getName());
     }
 
+	public void addExp(int exp){
+		this.job.setExp(this.job.getExp() + exp) ;
+		if(this.job.getExp() >= this.job.getMaxExp()){
+			new LevelUp(this, exp, this.job.getMaxExp());
+		}
+	}
+
+	public void calcDef(){
+		job.setDefense(job.getVitality());
+
+		if(hands != null){
+			job.setDefense(job.getDefense() + hands.getDefense());
+		}
+		if(head != null){
+			job.setDefense(job.getDefense() + head.getDefense());
+		}
+		if(body != null){
+			job.setDefense(job.getDefense() + body.getDefense());
+		}
+		if(legs != null){
+			job.setDefense(job.getDefense() + legs.getDefense());
+		}
+		if(feet != null){
+			job.setDefense(job.getDefense() + feet.getDefense());
+		}
+
+	}
 
     //public String getPronoun() {
          

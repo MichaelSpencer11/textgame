@@ -22,7 +22,7 @@ public class Victory {
         System.out.println("GP: " + battleContext.getMonster().getGp());
         battleContext.getPlayer().addGp(battleContext.getMonster().getGp());
         //check for level up and level up if necessary, and adding random variance to exp gain
-        battleContext.getPlayer().getJob().addExp(exp);
+        battleContext.getPlayer().addExp(exp);
         System.out.println("Items : ");
         //go through the drops of the monster, if it drops, put it in player inventory and notify
          for (Item i : battleContext.getMonster().getDrops()){

@@ -1,7 +1,5 @@
 package textgame.battle;
 
-import java.net.SocketTimeoutException;
-
 import textgame.Action;
 import textgame.ConsoleColors;
 import textgame.Random;
@@ -53,10 +51,8 @@ public class PlayerAttack extends Action {
         // if(battleContext.getMonster().getImage()){
 
         // }
-        if(battleContext.getMonster().getBlockValue() > 255){battleContext.getPlayer().setBlockValue(255);}
-        if(battleContext.getMonster().getBlockValue() < 1){battleContext.getPlayer().setBlockValue(1);}
 
-        if((battleContext.getPlayer().getMainHand().getHitRate() * battleContext.getMonster().getBlockValue()) >= (int) Random.roll(0,99)){
+        if((battleContext.getPlayer().getMainHand().getHitRate()  >= Random.roll(1,100))){
             return true;
         }
 

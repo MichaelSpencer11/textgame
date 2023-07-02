@@ -2,7 +2,6 @@ package textgame;
 
 import java.util.Scanner;
 
-import textgame.battle.ATBGauge;
 import textgame.jobs.Thief;
 
 import java.util.ArrayList;

@@ -48,17 +48,10 @@ public class Monster {
 	protected Element weak;
 	protected boolean berserked;
 	protected int respawnTime;
-
 	protected Room blocking;
-
 	public String typeToString() {
 		return this.getClass().toString().substring(15);
 	}
-
-	public void incrementATBGauge() {
-		this.atbGauge += (96 * (speed + 20)) / 16;
-    }
-
 	public void startCounter(Battle battleContext){
 			
 			new BattleMenu(battleContext);
@@ -273,6 +266,7 @@ public class Monster {
 		String name = "";
 		int batPow = 0;
 		int delay = 0;
+		String type = "";
 		StringBuilder itemName = new StringBuilder();
 		int randomType = Random.roll(1,6);
 		if(level >= 2 && level <= 9){
@@ -330,32 +324,26 @@ public class Monster {
 		}
 		if(randomType == 1){
 			itemName.append("Dagger");
-			delay = 250;
-			batPow = (int)(Math.ceil((level + 2) / .2) * .6);
+			type = "dagger";
 		} else if(randomType == 2){
 			itemName.append("Cesti");
-			delay = 400;
-			batPow = (int)Math.ceil((level + 2) / .2);
+			type = "cesti";
 		}else if(randomType == 3){
 			itemName.append("Axe");
-			delay = 500;
-			batPow = (int)Math.ceil((level + 2) / .2);
+			type = "axe";
 		} else if(randomType == 4){
 			itemName.append("Staff");
-			delay = 300;
-			batPow = (int)(Math.ceil((level + 2) / .2) * .7);
+			type = "staff";
 		}else if(randomType == 5){
 			itemName.append("Rod");
-			delay = 300;
-			batPow = (int)(Math.ceil((level + 2) / .2) * .7);
+			type = "rod";
 		}else if(randomType == 6){
 			itemName.append("Sword");
-			delay = 425;
-			batPow = (int)(Math.ceil((level + 2) / .2) * .85);
+			type = "sword";
 		}
 
 		name = String.valueOf(itemName);
-		Weapon w = new Weapon(name,level,delay,batPow);
+		Weapon w = new Weapon(name,level,type);
 		this.drops.add(w);
 	}
 
@@ -418,7 +406,6 @@ public class Monster {
 	public boolean getProtect(){return protect;}
 	public boolean getShell(){return shell;}
 	public int getMBlock () {return MBlock;}
-	public int getBlockValue(){return blockValue;}
 	public ArrayList<Item> getStolenItems () {return stolenItems;}
 	public ArrayList<Item> getDrops () {return drops;}
 	public String getDescription() {return description;}
@@ -457,7 +444,7 @@ public class Monster {
 	}
 
 	public void setStartingVigor(int level){
-		vigor = 40 + level;
+		vigor = 36 + level;
 	}
 
 	public void setStartingBatPow(int level){
