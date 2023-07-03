@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 import textgame.ConsoleColors;
 import textgame.Monster;
+import textgame.jobs.BlackMage;
+import textgame.jobs.RedMage;
+import textgame.jobs.Thief;
+import textgame.jobs.WhiteMage;
 import textgame.spells.Spell;
 
 public class BattleMenu {
@@ -28,7 +32,7 @@ public class BattleMenu {
                     battleContext.getPlayer().use(inputString, battleContext.getPlayer());
                 }
 
-        }else if(inputString.equalsIgnoreCase("m")){
+        }else if(inputString.equalsIgnoreCase("m") && (battleContext.getPlayer().getJob() instanceof WhiteMage || battleContext.getPlayer().getJob() instanceof BlackMage || battleContext.getPlayer().getJob() instanceof RedMage)){
              for(Spell s : battleContext.getPlayer().getJob().getSpells()){
                  System.out.println(s.getName());
              }
@@ -38,6 +42,8 @@ public class BattleMenu {
                      s.cast(battle);
                  }
              }
+        } else if (inputString.equalsIgnoreCase("s") && (battleContext.getPlayer().getJob() instanceof Thief)) {
+            ((Thief) battleContext.getPlayer().getJob()).steal(battleContext.getMonster(),battleContext.getPlayer());
         }
     }
 

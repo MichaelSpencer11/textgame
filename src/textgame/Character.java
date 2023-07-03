@@ -1724,11 +1724,13 @@ public String nothingOverThere() {
 				for(Item i : this.getInventory()){
 					if(selection.equalsIgnoreCase(i.getItemName())) {
 						System.out.println("Confirm selling of:");
-						System.out.println(i.getItemName() + " : " + (int)Math.ceil(i.gpValue * .75) + "GP : y/n");
+						System.out.println(i.getItemName() + " : " + i.gpValue + "GP : y/n");
 						System.out.print(ConsoleColors.GREEN + ">>>" + ConsoleColors.RESET);
 						if(sc.nextLine().equalsIgnoreCase("y")){
+							shopKeep.getInventory().add(i);
+							this.setGp(this.getGp() + i.gpValue);
 							this.getInventory().remove(i);
-							this.setGp(this.getGp() + (int)Math.ceil(i.gpValue * .75));
+
 
 						}
 						System.out.println(ConsoleColors.CYAN + "Would you like to shop again? y/n" + ConsoleColors.RESET);
@@ -2346,10 +2348,18 @@ public String nothingOverThere() {
 			}
 		} 
 		System.out.println(target.name + " targeted");
-		System.out.println("HP: "+target.hp);
+		/*System.out.println("HP: "+target.hp);
 		System.out.println("vigor: " + target.getVigor());
 		System.out.println("battlepower: " + target.getBattlePower());
 		System.out.println("defense: " + target.getDefense());
+		System.out.println("Drops");
+		for(Item i : target.getDrops()){
+			System.out.println(i.getItemName());
+		}
+		System.out.println("Stolen Items");
+		for(Item i : target.getStolenItems()){
+			System.out.println(i.getItemName());
+		}*/
 
 
 	}

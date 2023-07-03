@@ -9,9 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4b2720d-54b5-4ebb-a806-009182241594" name="Changes" comment="implemeted resting">
+    <list default="true" id="c4b2720d-54b5-4ebb-a806-009182241594" name="Changes" comment="added warning for buying armor you cannot equip">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/textgame/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/textgame/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/textgame/battle/BattleMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/battle/BattleMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/textgame/jobs/Thief.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/jobs/Thief.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +133,7 @@
       <option name="presentableId" value="Default" />
       <updated>1687751420308</updated>
       <workItem from="1687751421574" duration="3409000" />
-      <workItem from="1688032088422" duration="42645000" />
+      <workItem from="1688032088422" duration="46307000" />
     </task>
     <task id="LOCAL-00001" summary="finally got the jar to run">
       <created>1687751882102</created>
@@ -188,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688337761425</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added warning for buying armor you cannot equip">
+      <created>1688344890696</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1688344890696</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,6 +246,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="finally got the jar to run" />
     <MESSAGE value="implemeted resting" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemeted resting" />
+    <MESSAGE value="added warning for buying armor you cannot equip" />
+    <option name="LAST_COMMIT_MESSAGE" value="added warning for buying armor you cannot equip" />
   </component>
 </project>
