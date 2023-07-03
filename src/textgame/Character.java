@@ -1667,7 +1667,14 @@ public String nothingOverThere() {
 				for (Item i : shopKeep.getInventory()) {
 					if (selection.equalsIgnoreCase(i.itemName)) {
 						if(this.gp >= i.gpValue){
-
+							//check for weight
+							if(job instanceof Warrior && i.getWeight() != 3){
+								System.out.println("Your current job cannot equip the " + i.getItemName());
+							} else if((job instanceof Thief || job instanceof RedMage) && (i.getWeight() != 2)){
+								System.out.println("Your current job cannot equip the " + i.getItemName());
+							} else if((job instanceof WhiteMage || job instanceof BlackMage || job instanceof Monk) && (i.getWeight() != 1)){
+								System.out.println("Your current job cannot equip the " + i.getItemName());
+							}
 						}else{
 							System.out.println("Not enough gp");
 							return;

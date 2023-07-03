@@ -9,30 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4b2720d-54b5-4ebb-a806-009182241594" name="Changes" comment="finally got the jar to run">
-      <change afterPath="$PROJECT_DIR$/src/textgame/.~lock.Gardus.ods#" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/textgame/.~lock.TsiporimTownMap.ods#" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/textgame/Rest.java" afterDir="false" />
+    <list default="true" id="c4b2720d-54b5-4ebb-a806-009182241594" name="Changes" comment="implemeted resting">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/textgame/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/Effect.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/Input.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/Monster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/armors/Armor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/armors/Armor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/battle/ATBGauge.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/battle/MonsterAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/battle/MonsterAttack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/battle/PlayerAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/battle/PlayerAttack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/battle/PlayerMagicCast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/battle/PlayerMagicCast.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/battle/Victory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/battle/Victory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/jobs/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/jobs/Job.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/jobs/LevelUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/jobs/LevelUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/jobs/Polymorph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/jobs/Polymorph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/jobs/Thief.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/jobs/Thief.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/regions/Cave1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/regions/Cave1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/regions/TsiporimTown.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/regions/TsiporimTown.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/weapons/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/weapons/Weapon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +130,7 @@
       <option name="presentableId" value="Default" />
       <updated>1687751420308</updated>
       <workItem from="1687751421574" duration="3409000" />
-      <workItem from="1688032088422" duration="40249000" />
+      <workItem from="1688032088422" duration="42645000" />
     </task>
     <task id="LOCAL-00001" summary="finally got the jar to run">
       <created>1687751882102</created>
@@ -202,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687753050677</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="implemeted resting">
+      <created>1688337761425</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1688337761425</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,6 +235,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="finally got the jar to run" />
-    <option name="LAST_COMMIT_MESSAGE" value="finally got the jar to run" />
+    <MESSAGE value="implemeted resting" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemeted resting" />
   </component>
 </project>
