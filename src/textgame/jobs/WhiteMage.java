@@ -1,11 +1,12 @@
 package textgame.jobs;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import textgame.spells.Cure;
 import textgame.spells.Spell;
 
-public class WhiteMage extends Job {
+public class WhiteMage extends Job implements Serializable {
 
 	protected Spell cure = new Cure();
 

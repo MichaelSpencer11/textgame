@@ -2,6 +2,8 @@ package textgame.elements;
 
 import textgame.elements.Element;
 
-public class Earth extends Element {
+import java.io.Serializable;
+
+public class Earth extends Element implements Serializable {
 
 }

@@ -2,6 +2,8 @@ package textgame.elements;
 
 import textgame.elements.Element;
 
-public class Wind extends Element {
+import java.io.Serializable;
+
+public class Wind extends Element implements Serializable {
     
 }

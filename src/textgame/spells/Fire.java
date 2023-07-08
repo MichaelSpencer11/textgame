@@ -6,7 +6,9 @@ import textgame.Random;
 import textgame.battle.Battle;
 import textgame.battle.Victory;
 
-public class Fire extends Spell{
+import java.io.Serializable;
+
+public class Fire extends Spell implements Serializable {
 
     public Fire(){
         super("Fire",20,"f",6,new textgame.elements.Fire(),"Emits a blast of burning heat that severely chars the target.");

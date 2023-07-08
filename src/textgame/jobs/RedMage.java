@@ -3,9 +3,10 @@ package textgame.jobs;
 import textgame.battle.PlayerMagicCast;
 import textgame.spells.Spell;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class RedMage extends Job {
+public class RedMage extends Job implements Serializable {
 
 	protected ArrayList<Ability> abilities;
 	protected ArrayList<Spell> spells;

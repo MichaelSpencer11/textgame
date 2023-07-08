@@ -2,9 +2,10 @@ package textgame.jobs;
 
 import textgame.Random;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Warrior extends Job {
+public class Warrior extends Job implements Serializable {
 
 	protected ArrayList<Ability> abilities;
 	protected Ability attack;

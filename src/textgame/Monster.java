@@ -1,5 +1,6 @@
 package textgame;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -11,7 +12,7 @@ import textgame.items.Tincture;
 import textgame.items.Tonic;
 import textgame.weapons.Weapon;
 
-public class Monster {
+public class Monster implements Serializable {
 	protected String name;
 	protected int level;
 	protected int hp;
@@ -32,13 +33,11 @@ public class Monster {
 	protected int mdef;
 	protected int evade;
 	protected int MBlock;
-	protected int blockValue = (255 - this.getMBlock() * 2) + 1;
 	protected ArrayList<Item> stolenItems = new ArrayList<Item>();
 	protected ArrayList<Item> drops = new ArrayList<Item>();
 	protected Room currentRoom;
 	protected Room roomIn;
 	protected String description;
-	protected int atbGauge = 0;
 	protected Character target;
 	protected boolean protect;
 	protected boolean shell;
@@ -52,12 +51,7 @@ public class Monster {
 	public String typeToString() {
 		return this.getClass().toString().substring(15);
 	}
-	public void startCounter(Battle battleContext){
-			
-			new BattleMenu(battleContext);
-			
-		
-	}
+
 
 	//monster that does not block another room
 	public Monster(String name, int lvl, int delay, int respawnTime, Room room){

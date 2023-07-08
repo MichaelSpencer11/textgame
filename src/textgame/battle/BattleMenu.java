@@ -25,7 +25,7 @@ public class BattleMenu {
             new PlayerAttack(battleContext);
         } else if (inputString.equalsIgnoreCase("i")){
                 battleContext.getPlayer().printInv();
-                System.out.println("Use an Item: ex. 'use <item> <player>'");
+                System.out.println("Use an Item: ex. 'use <item>/<player>'");
                 System.out.print(ConsoleColors.GREEN + ">>>" + ConsoleColors.RESET);
                 inputString = sc.nextLine();
                 if(inputString.length() > 3 && inputString.substring(0,3).equals("use")){

@@ -2,6 +2,8 @@ package textgame.elements;
 
 import textgame.elements.Element;
 
-public class Void extends Element {
+import java.io.Serializable;
+
+public class Void extends Element implements Serializable {
 
 }

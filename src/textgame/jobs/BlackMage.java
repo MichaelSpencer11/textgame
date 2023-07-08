@@ -1,9 +1,11 @@
 package textgame.jobs;
 
 import textgame.spells.*;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class BlackMage extends Job {
+public class BlackMage extends Job implements Serializable {
 
 	protected Spell fire = new Fire();
 	protected Spell ice = new Ice();

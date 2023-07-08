@@ -4,7 +4,9 @@ import textgame.Character;
 import textgame.battle.Battle;
 import textgame.elements.Element;
 
-public abstract class Spell {
+import java.io.Serializable;
+
+public abstract class Spell implements Serializable {
 
 
 

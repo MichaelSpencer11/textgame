@@ -1,6 +1,8 @@
 package textgame;
 
-public class Rest implements Runnable {
+import java.io.Serializable;
+
+public class Rest implements Runnable{
 
     Character player;
     Thread t;
@@ -12,6 +14,11 @@ public class Rest implements Runnable {
     public Rest(Character player){
         t = new Thread(this,"restThread");
         this.player = player;
+        this.t.start();
+
+    }
+
+    public void rest(){
 
     }
 
@@ -23,10 +30,11 @@ public class Rest implements Runnable {
             } catch (InterruptedException ie){
                 System.out.println(ie.getMessage());
             }
-            if (resting) {
+            if (player.isResting()) {
                 player.getJob().addHp(player.getJob().getMaxHp() / 10);
                 player.getJob().addMp(player.getJob().getMaxMp() / 10);
                 System.out.println("You rest and recover " + (player.getJob().getMaxHp() / 10) + "hp and " + (player.getJob().getMaxMp() / 10) + " mp." );
+                System.out.print(ConsoleColors.GREEN + ">>>" + ConsoleColors.RESET);
             }
 
         }

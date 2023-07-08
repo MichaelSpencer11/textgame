@@ -1,12 +1,13 @@
 package textgame.jobs;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import textgame.battle.PlayerMagicCast;
 import textgame.spells.Spell;
 import textgame.techniques.*;
 
-public abstract class Job {
+public abstract class Job implements Serializable {
 
 
 	public int level;
@@ -29,7 +30,6 @@ public abstract class Job {
 	protected int evade;
 	protected int defMod;
 	protected ArrayList<Spell> spells;
-	protected ArrayList<Technique> techniques;
 
 
 	public void addHp(int hp){

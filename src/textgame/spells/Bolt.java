@@ -6,7 +6,9 @@ import textgame.Random;
 import textgame.battle.Battle;
 import textgame.battle.Victory;
 
-public class Bolt extends Spell{
+import java.io.Serializable;
+
+public class Bolt extends Spell implements Serializable {
 
     public Bolt(){
         super("Bolt",60,"b",12,new textgame.elements.Lightning(),"Strikes the target with a bolt of pure electrical energy.");

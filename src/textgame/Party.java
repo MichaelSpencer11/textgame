@@ -1,8 +1,9 @@
 package textgame;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Party {
+public class Party implements Serializable {
     protected Character leader;
     protected String partyName;
     protected ArrayList<Character> partyList = new ArrayList<Character>();

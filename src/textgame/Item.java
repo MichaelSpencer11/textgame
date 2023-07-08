@@ -1,9 +1,10 @@
 package textgame;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 //there are items in the game, here are some attributes and stuff
-public class Item{
+public class Item implements Serializable {
 		protected int itemId;
 		protected static int itemTracker;
 		protected String itemName;
@@ -13,12 +14,12 @@ public class Item{
 
 
 
-	protected boolean equipped;
+		protected boolean equipped;
 		protected boolean plural;
 		protected boolean takeable;
 		protected boolean consumable;
 		protected ArrayList<String> stolenFrom;
-		protected ArrayList<Monster> morphedInto;
+
 		protected int dropRate;
 		protected boolean equippable;
 		protected int gpValue;
@@ -44,7 +45,7 @@ public class Item{
 
 
 
-	protected int level;
+		protected int level;
 
 
 		
@@ -76,7 +77,6 @@ public class Item{
 			this.takeable = i.takeable;
 			this.consumable = i.consumable;
 			this.stolenFrom = i.stolenFrom;
-			this.morphedInto = i.morphedInto;
 			this.dropRate = i.dropRate;
 			this.equippable = i.equippable;
 			this.gpValue = i.gpValue;

@@ -1,6 +1,8 @@
 package textgame.elements;
 
-public class Element {
+import java.io.Serializable;
+
+public class Element implements Serializable {
 	
 	
 }

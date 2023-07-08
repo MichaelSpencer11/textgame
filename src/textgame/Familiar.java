@@ -1,13 +1,13 @@
 package textgame;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-//This is a the Familiar class which governs the Familiar, a helper for the player
-public class Familiar extends Character{
+//This is the Familiar class which governs the Familiar, a helper for the player
+public class Familiar extends Character implements Serializable {
 	
 	private int famStoryCount = 0;
-	private boolean following;
 	private Character player;
 	
 	public Familiar(String description, Room firstRoom, Character player){

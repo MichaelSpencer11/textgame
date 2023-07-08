@@ -9,6 +9,9 @@ import textgame.battle.Battle;
 public class Input{
 
     Scanner scanner = new Scanner(System.in);
+
+
+
     Character thisPlayer;
 
 
@@ -55,7 +58,7 @@ public class Input{
                 thisPlayer.currentParty.listMembers();
             }
             else if(inputString.equals("battle")){
-                if(thisPlayer.asleep || thisPlayer.rest.isResting()){
+                if(thisPlayer.asleep || thisPlayer.isResting()){
                     System.out.println("You cannot battle while resting or asleep.");
                     return;
                 }
@@ -75,12 +78,16 @@ public class Input{
             }
             else if(inputString.length() > 3 && inputString.substring(0,4).equals("rest")) {
                 thisPlayer.rest();
+                Rest rest = new Rest(thisPlayer);
             }
             else if(inputString.length() > 3 && inputString.substring(0,4).equals("cast")) {
             	thisPlayer.cast(inputString.substring(5), thisPlayer);
             }
             else if(inputString.length() > 3 && inputString.substring(0,4).equals("open")){
                 thisPlayer.open(inputString);
+            }
+            else if(inputString.length() > 3 && inputString.substring(0,4).equals("save")){
+                Utilities.save(thisPlayer);
             }
             else if(inputString.length() > 3 && inputString.substring(0,5).equals("close")){
                 thisPlayer.closeDoor(inputString);
@@ -190,6 +197,10 @@ public class Input{
             
         }
 
+    }
+
+    public Character getThisPlayer() {
+        return thisPlayer;
     }
     
 

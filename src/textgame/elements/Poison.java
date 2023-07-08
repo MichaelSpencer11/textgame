@@ -2,6 +2,8 @@ package textgame.elements;
 
 import textgame.elements.Element;
 
-public class Poison extends Element {
+import java.io.Serializable;
+
+public class Poison extends Element implements Serializable {
 
 }

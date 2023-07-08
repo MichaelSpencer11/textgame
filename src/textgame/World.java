@@ -1,6 +1,8 @@
 package textgame;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import textgame.*;
 import textgame.Item;
@@ -28,6 +30,8 @@ public class World {
 	}
 
 	private static ArrayList<ShopKeep> globalShopKeepList = new ArrayList<ShopKeep>();
+
+
 
 	//regions
 	PlayerHome playerHome;
@@ -116,8 +120,23 @@ public class World {
 			tsiporimTown.getCaveLink().getAdjacentRooms().add(cave1.getOutLink());
 			tsiporimTown.getCaveLink().setHasS(true);
 
-		    Input input = new Input(playerHome.getPlayer());
-		    input.input();
+			Scanner sc = new Scanner(System.in);
+			System.out.println("1.New");
+			System.out.println("2.Load");
+			System.out.print(ConsoleColors.GREEN + ">>>" + ConsoleColors.RESET);
+			String selection = sc.nextLine();
+			if(selection.equalsIgnoreCase("1") || selection.equalsIgnoreCase("new")){
+				Input input = new Input(playerHome.getPlayer());
+				Rest rest = new Rest(playerHome.getPlayer());
+				input.input();
+			} else if(selection.equalsIgnoreCase("2") || selection.equalsIgnoreCase("load")){
+				Input input = new Input(Utilities.load());
+				Rest rest = new Rest(input.getThisPlayer());
+				input.input();
+			}
+
+
+
 }
 		
 		public World(){}

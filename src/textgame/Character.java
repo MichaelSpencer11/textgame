@@ -1,7 +1,12 @@
 package textgame;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Serializable;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 
 import textgame.armors.Armor;
 import textgame.battle.*;
@@ -10,24 +15,20 @@ import textgame.jobs.*;
 import textgame.spells.Spell;
 import textgame.weapons.*;
 
-public class Character {
+public class Character implements Serializable {
 	//regular RPG data fields I guess
 	public Job job;
     protected String name;
     protected String type;
     protected String description;
-    protected String pronounString;
-
-	protected enum pronoun{M, F, NB};
-    protected String areaString;
-    protected enum area{Land, Sea, Space};
-    protected String areaRace;
     protected Familiar familiar;
     protected Character follower;
 	protected Party currentParty;
-	protected long atbGauge;
-    
-    //states
+
+
+
+	//states
+	protected boolean resting;
     protected boolean standing;
     protected boolean sitting;
     protected boolean prone;
@@ -43,19 +44,17 @@ public class Character {
 	protected boolean berserked;
 	protected boolean protect;
 
-	protected Rest rest;
+
 
 	//stats
 	protected int gp;
-	protected int critChance;
     
     //location and other stuff
     protected Room currentRoom;
 	protected Room homePoint;
     protected ArrayList<Item> inventory;
-	protected ArrayList<Weapon> weapons;
     protected ArrayList<String> thoughts;
-	protected ArrayList<PlayerMagicCast> spells;
+
     protected int invLength = 38;
     protected boolean hasName;
 	protected Monster target;
@@ -92,13 +91,10 @@ public class Character {
 		this.name = "Michael";
 		this.hasName = true;
     	this.inventory = new ArrayList<Item>();
-		this.spells = new ArrayList<PlayerMagicCast>();
     	this.asleep = false;
         this.prone = false;
         this.sitting = false;
         this.standing = true;
-		this.rest = new Rest(this);
-		this.rest.t.start();
 		warrior = new Warrior();
 		redMage = new RedMage();
 		thief = new Thief();
@@ -152,6 +148,12 @@ public class Character {
         this.currentRoom = firstRoom;
         
     }
+
+	public void save(){
+
+
+
+	}
 
     
     //multipurpose look command. you can look at the room or look at an item or character
@@ -2326,11 +2328,11 @@ public String nothingOverThere() {
     public boolean getFollowing() {
 		return this.following;
 	}
-	
+
 	public void setFollowing(boolean following) {
 		this.following = following;
 	}
-	
+
 	public ArrayList<Item> getInventory() {return inventory;}
 
 	
@@ -2364,28 +2366,8 @@ public String nothingOverThere() {
 
 	}
 
-	public void startCounter(Battle battle){
-		this.atbGauge = 0;
-       // setTimeout(() -> incrementATBGauge(), this.getSpeed() );
-		if(this.atbGauge >= 65536 ){
-			new BattleMenu(battle);
-		}
-    }
-
-	public void incrementATBGauge() {
-		this.atbGauge += (96 * (this.job.getSpeed() + 20)) / 16;
-    }
-
 	public void attack(Battle battleContext) {
 		new PlayerAttack(battleContext);
-	}
-
-	public void magicMenu(Battle battleContext){
-		if(this.spells.size() > 0){
-		Scanner sc = new Scanner(System.in);
-		this.spells.forEach(s -> System.out.println(s) );
-
-		}
 	}
 
 	public void itemMenu(){
@@ -2508,11 +2490,11 @@ public String nothingOverThere() {
 	}
 
 	public void rest(){
-		if(rest.isResting()){
-			rest.setResting(false);
+		if(this.isResting()){
+			this.setResting(false);
 			System.out.println("You get up from your rest.");
 		} else {
-			rest.setResting(true);
+			this.setResting(true);
 			System.out.println("You begin resting.");
 
 		}
@@ -2558,6 +2540,10 @@ public String nothingOverThere() {
 	}
 	protected void setGp(int newGp) {
 		this.gp = newGp;
+	}
+	public boolean isResting() {return resting;}
+	public void setResting(boolean resting) {
+		this.resting = resting;
 	}
     public void cast(String inputString, Character sourceCharacter) {
 		Spell targetSpell = null;

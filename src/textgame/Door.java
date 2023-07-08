@@ -1,9 +1,10 @@
 package textgame;
 
 
+import java.io.Serializable;
 
 //doors are for sure things in the world
-public class Door {
+public class Door implements Serializable {
     private static int DoorIdTracker;
     private int DoorId;
     private String doorDir;

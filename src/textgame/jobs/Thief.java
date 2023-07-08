@@ -4,10 +4,11 @@ import textgame.*;
 import textgame.Character;
 import textgame.jobs.Job;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import textgame.jobs.Ability;
 
-public class Thief extends Job {
+public class Thief extends Job implements Serializable {
 
 	protected ArrayList<Ability> abilities;
 	protected Ability attack;

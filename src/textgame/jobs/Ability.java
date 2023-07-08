@@ -2,7 +2,9 @@ package textgame.jobs;
 
 import textgame.jobs.Job;
 
-public class Ability {
+import java.io.Serializable;
+
+public class Ability implements Serializable {
     protected String name;
 
     public Ability (String name){

@@ -2,6 +2,8 @@ package textgame.elements;
 
 import textgame.elements.Element;
 
-public class Air extends Element {
+import java.io.Serializable;
+
+public class Air extends Element implements Serializable {
 
 }

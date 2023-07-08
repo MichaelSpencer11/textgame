@@ -1,9 +1,10 @@
 package textgame;
 
+import java.io.Serializable;
 import java.util.*;
 
 //the world is made of rooms so this one is pretty important
-public class Room {
+public class Room implements Serializable {
 	private int roomId;
 	private String name;
 	public static int RoomIdTracker;

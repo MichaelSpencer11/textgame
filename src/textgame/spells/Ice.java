@@ -6,7 +6,9 @@ import textgame.Random;
 import textgame.battle.Battle;
 import textgame.battle.Victory;
 
-public class Ice extends Spell{
+import java.io.Serializable;
+
+public class Ice extends Spell implements Serializable {
     public Ice(){
         super("Ice",35,"i",9,new textgame.elements.Ice(),"Propels a flurry of frozen nanomaterial that inflicts cold damage.");
     }

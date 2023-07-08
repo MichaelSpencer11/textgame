@@ -4,7 +4,9 @@ import textgame.Character;
 import textgame.Random;
 import textgame.battle.Battle;
 
-public class Cure extends Spell {
+import java.io.Serializable;
+
+public class Cure extends Spell implements Serializable {
 
     public Cure(){
         super("Cure",1,"c",6,new textgame.elements.Pearl(),"Bathes the target in pearly light that heals minor damage.");
