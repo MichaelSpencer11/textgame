@@ -28,7 +28,7 @@ public class Input{
 
 
             System.out.print(ConsoleColors.GREEN + ">>>" + ConsoleColors.RESET);
-            String inputString = scanner.nextLine();
+            String inputString = scanner.nextLine().trim();
             try {
             if(inputString.equals("")){
                 continue;
@@ -185,9 +185,10 @@ public class Input{
             else if(inputString.equals("i") || inputString.equals("inv")){
                 thisPlayer.printInv();
             }
+            /*
             else if (inputString.length() > 3 && inputString.substring(0,thisPlayer.familiar.getName().length()).toLowerCase().equals(thisPlayer.familiar.getName().toLowerCase())){
                 thisPlayer.familiar.buddyRequest(inputString);
-            }
+            }*/
             else continue;
             } catch (Exception e) {
                 e.printStackTrace();

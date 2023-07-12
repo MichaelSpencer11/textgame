@@ -126,8 +126,22 @@ public class World {
 			System.out.print(ConsoleColors.GREEN + ">>>" + ConsoleColors.RESET);
 			String selection = sc.nextLine();
 			if(selection.equalsIgnoreCase("1") || selection.equalsIgnoreCase("new")){
-				Input input = new Input(playerHome.getPlayer());
-				Rest rest = new Rest(playerHome.getPlayer());
+				String name = "";
+				System.out.println("What is your name?");
+				System.out.print(ConsoleColors.GREEN + ">>>" + ConsoleColors.RESET);
+				name = sc.nextLine();
+				System.out.println("Starting job?");
+				System.out.println("1.Warrior");
+				System.out.println("2.Monk");
+				System.out.println("3.Thief");
+				System.out.println("4.Red Mage");
+				System.out.println("5.White Mage");
+				System.out.println("6.Black Mage");
+				System.out.print(ConsoleColors.GREEN + ">>>" + ConsoleColors.RESET);
+				String jobNumber = sc.nextLine();
+				Character player = new Character(name,jobNumber, playerHome.getRoom());
+				Input input = new Input(player);
+				Rest rest = new Rest(input.getThisPlayer());
 				input.input();
 			} else if(selection.equalsIgnoreCase("2") || selection.equalsIgnoreCase("load")){
 				Input input = new Input(Utilities.load());

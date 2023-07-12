@@ -1,6 +1,7 @@
 package textgame.jobs;
 
 import textgame.battle.PlayerMagicCast;
+import textgame.spells.Enfire;
 import textgame.spells.Spell;
 
 import java.io.Serializable;
@@ -13,6 +14,7 @@ public class RedMage extends Job implements Serializable {
 	protected Ability attack;
 	protected Ability magic;
 	protected Ability item;
+	protected Spell enfire = new Enfire();
 
     public RedMage() {
 		this.level = 2;
@@ -21,8 +23,9 @@ public class RedMage extends Job implements Serializable {
 		setMaxExp(level);
 		setMaxMp(level);
 		setMp(getMaxMp());
-		setVigor(level);
-		setIntelligence(level);
+		setInitialVigor();
+		setInitialIntel();
+		setInitialVitality();
 		this.defMod = 3;
 		this.defense = 39;
 		this.magicDefense = 40;
@@ -37,6 +40,7 @@ public class RedMage extends Job implements Serializable {
 		this.abilities.add(magic);
 		this.abilities.add(item);
 		this.spells = new ArrayList<>();
+		this.spells.add(enfire);
 
 	}
 
@@ -50,21 +54,28 @@ public class RedMage extends Job implements Serializable {
 		mp = maxMp;
 	}
 
-	public void setVigor(int newLevel){
-		vigor = 34 + newLevel;
+	public void setInitialVigor(){
+		vigor = 34;
 	}
-	public void setDefense(int level){
-		defense = (((level + 1) * 10));
-	}
-
-	public void setIntelligence(int newLevel)
-	{
-		intelligence = 43 + newLevel;
-	}
+	public void setNextLevelVigor(int newLevel){vigor = vigor + newLevel;}
+	public void setInitialIntel(){intelligence = 43;}
+	public void setNextLevelIntel(int newLevel){intelligence = intelligence + newLevel;}
+	public void setInitialVitality(){vitality = 30;}
+	public void setNextLevelVitality(int newLevel){vitality = (((newLevel + 1) * 10));}
 
 	public void loadAbilities(){
 		for (Ability a : abilities){
 			System.out.println(a.getName());
 		}
 	}
+
+	@Override
+	public ArrayList<Spell> getSpells(){return spells;}
+
+	@Override
+	public int getBattlePower(){return battlePower;}
+	@Override
+	public void setEnSpellIsActive(boolean enSpellIsActive) {this.enSpellIsActive = enSpellIsActive;}
+	@Override
+	public boolean enSpellIsActive() {return enSpellIsActive;}
 }

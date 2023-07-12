@@ -18,16 +18,20 @@ import textgame.monsters.WereRat;
 
 public class PlayerHome extends Region {
 
-
-    Character player;
     Room sLink;
 	Room backyardLink;
+
+	public Room getRoom() {
+		return room;
+	}
+
+	Room room;
     
 	
     public PlayerHome(){}
 
     public PlayerHome(World world){
-    Room room = new Room("interior", "Your room","This is your room. Your twin size bed is against one wall. Your desk is against another. There is a black computer monitor, a keyboard and a mouse on the desk.", null, null, null, null, null, null, null, null, null, null);
+    room = new Room("interior", "Your room","This is your room. Your twin size bed is against one wall. Your desk is against another. There is a black computer monitor, a keyboard and a mouse on the desk.", null, null, null, null, null, null, null, null, null, null);
 	Bed yourBed = new Bed("bed", "A basic twin four post bed. It is a little squeaky but pretty comfortable.", room);
 	Room playerCloset = new Room("interior", "Your closet","Your walk-in closet. There are clothes hanging up in the closet and some on the floor neatly placed under the racks.", null, null, room, null, null, null, null, null, null, null);
 	Door closetDoor = new Door("east", "locked", playerCloset);
@@ -47,29 +51,29 @@ public class PlayerHome extends Region {
 	//Item practiceStaff = new Weapon("wooden staff", "A wooden practice staff. It has a few nicks and cuts in it and is quite worn.", "The staff feels as heavy as a metal staff in your hand, but it is still made out of wood.", playerCloset);
 	//Item practicesword = new Weapon("wooden sword", "A wooden practice sword. It has a few nicks and cuts in it and is quite worn.", "The sword feels as heavy as a metal sword in your hand, but it is still made out of wood.", playerCloset);
 	Desk desk = new Desk("desk", "Your wooden desk in your room. It has a few nicks in the finish but is very sturdy.", room);
-	player = new Character(room);
+
 	
-    Character familiar = new Familiar("Someone is standing or floating here, it is very hard to see them, they are almost not there but you know that there is definitely a presence here.", room, player);
+    //Character familiar = new Familiar("Someone is standing or floating here, it is very hard to see them, they are almost not there but you know that there is definitely a presence here.", room);
 	Character automaton = new Automaton("Incom","An ordinary looking automaton with mechanical limbs and a rudimentary programmed action stack. It is currently sitting in a corner non-functionally." , room);
-	Monster l1 = new Monster("l2",2,3000,10000,hallwayStairs);
-	Monster l10 = new Monster("l10", 10,3000,10000,hallwayStairs);
-	Monster l20 = new Monster("l20",20,3000,10000,hallwayStairs);
-	Monster l30 = new Monster("l30", 30,3000,10000,hallwayStairs);
-	Monster l40 = new Monster("l40",40,3000,10000,hallwayStairs);
-	Monster l50 = new Monster("l50", 50, 3000,10000,hallwayStairs);
-	Monster l60 = new Monster("l60",60,3000,10000,hallwayStairs);
-	Monster l70 = new Monster("l70",70,3000,10000,hallwayStairs);
-	Monster l80 = new Monster("l80", 80, 3000,10000,hallwayStairs);
-	Monster l90 = new Monster("l90", 90,3000,10000,hallwayStairs);
-	Monster l100 = new Monster("l100",100,3000,10000, hallwayStairs);
+	Monster l2 = new Monster("l2",2,3000,10000,hallwayStairs);
+	//Monster l10 = new Monster("l10", 10,3000,10000,hallwayStairs);
+	//Monster l20 = new Monster("l20",20,3000,10000,hallwayStairs);
+	//Monster l30 = new Monster("l30", 30,3000,10000,hallwayStairs);
+	//Monster l40 = new Monster("l40",40,3000,10000,hallwayStairs);
+	//Monster l50 = new Monster("l50", 50, 3000,10000,hallwayStairs);
+	//Monster l60 = new Monster("l60",60,3000,10000,hallwayStairs);
+	//Monster l70 = new Monster("l70",70,3000,10000,hallwayStairs);
+	//Monster l80 = new Monster("l80", 80, 3000,10000,hallwayStairs);
+	//Monster l90 = new Monster("l90", 90,3000,10000,hallwayStairs);
+	//Monster l100 = new Monster("l100",100,3000,10000, hallwayStairs);
 	//Monster commander = new Commander(livingRoom, frontLawn);
     sLink = frontLawn;
 	backyardLink = backyard;
     }
 
-    public Character getPlayer() {
+    /*public Character getPlayer() {
         return player;
-    }
+    }*/
 
     public Room getSLink(){
         return sLink;

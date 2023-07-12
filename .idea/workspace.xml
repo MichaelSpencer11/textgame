@@ -9,57 +9,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4b2720d-54b5-4ebb-a806-009182241594" name="Changes" comment="implemented steal">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/fasterxml_jackson_core_databind.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/saveGames/Michael.ser" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/textgame/Michael.ser" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/textgame/Utilities.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/textgame/util/CharacterSaveModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/textgame/util/JobSaveModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="c4b2720d-54b5-4ebb-a806-009182241594" name="Changes" comment="can start new game">
+      <change afterPath="$PROJECT_DIR$/src/textgame/gui/TextForm.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/textgame/gui/TextForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/textgame/micahel.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/textgame/spells/Enfire.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/textgame/util/EnSpellTimer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/textgame/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/Door.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/Familiar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/Familiar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/textgame/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/Input.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/textgame/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/Monster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/Party.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/Party.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/Rest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/Rest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/textgame/Michael.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/Michael.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/textgame/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/Utilities.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/textgame/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/battle/BattleMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/battle/BattleMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/elements/Air.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/elements/Air.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/elements/Earth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/elements/Earth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/elements/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/elements/Element.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/elements/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/elements/Fire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/elements/Ice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/elements/Ice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/elements/Lightning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/elements/Lightning.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/elements/Pearl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/elements/Pearl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/elements/Poison.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/elements/Poison.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/elements/Void.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/elements/Void.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/elements/Wind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/elements/Wind.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/jobs/Ability.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/jobs/Ability.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/textgame/jobs/BlackMage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/jobs/BlackMage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/textgame/jobs/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/jobs/Job.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/textgame/jobs/LevelUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/jobs/LevelUp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/textgame/jobs/Monk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/jobs/Monk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/textgame/jobs/Polymorph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/jobs/Polymorph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/textgame/jobs/RedMage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/jobs/RedMage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/textgame/jobs/Thief.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/jobs/Thief.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/textgame/jobs/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/jobs/Warrior.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/textgame/jobs/WhiteMage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/jobs/WhiteMage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/spells/Bolt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/spells/Bolt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/textgame/regions/PlayerHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/regions/PlayerHome.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/textgame/spells/Cure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/spells/Cure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/spells/Fire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/spells/Fire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textgame/spells/Ice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/spells/Ice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/textgame/spells/Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/spells/Spell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/textgame.iml" beforeDir="false" afterPath="$PROJECT_DIR$/textgame.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/textgame/weapons/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textgame/weapons/Weapon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,6 +97,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;false&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;false&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/mspen/source/repos/EI/textgame&quot;,
@@ -129,7 +106,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
@@ -196,7 +173,8 @@
       <workItem from="1688435299534" duration="161000" />
       <workItem from="1688435870500" duration="3250000" />
       <workItem from="1688612854011" duration="2125000" />
-      <workItem from="1688843893586" duration="7933000" />
+      <workItem from="1688843893586" duration="46549000" />
+      <workItem from="1689120870667" duration="56000" />
     </task>
     <task id="LOCAL-00001" summary="finally got the jar to run">
       <created>1687751882102</created>
@@ -268,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688348617325</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="implemented saving and loading">
+      <created>1688856021974</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1688856021974</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,7 +303,8 @@
     <MESSAGE value="implemeted resting" />
     <MESSAGE value="added warning for buying armor you cannot equip" />
     <MESSAGE value="implemented steal" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented steal" />
+    <MESSAGE value="implemented saving and loading" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented saving and loading" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -331,7 +317,22 @@
           <properties class="java.lang.NoClassDefFoundError" package="java.lang" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/textgame/Character.java</url>
+          <line>2491</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/../../../../../../jdk-20.0.1/lib/src.zip!/java.base/java/lang/Runnable.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="textgame.World" memberName="playerHome" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

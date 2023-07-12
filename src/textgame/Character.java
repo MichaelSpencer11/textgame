@@ -86,23 +86,37 @@ public class Character implements Serializable {
     
     //Constructor for characters who do not have predetermined names in the beginning
     //Generally, the player will name these characters later
-    public Character(Room firstRoom){
-    	//we'll hard code the character name for now
-		this.name = "Michael";
+    public Character(String name, String startingJobNumber, Room firstRoom){
+
+		this.name = name;
 		this.hasName = true;
     	this.inventory = new ArrayList<Item>();
     	this.asleep = false;
         this.prone = false;
         this.sitting = false;
         this.standing = true;
+
 		warrior = new Warrior();
 		redMage = new RedMage();
 		thief = new Thief();
 		monk = new Monk();
 		whiteMage = new WhiteMage();
 		blackMage = new BlackMage();
-		this.job = thief;
-		final Weapon ceramicDagger = new Weapon("Ceramic Dagger",2,"dagger");
+		if(startingJobNumber.equalsIgnoreCase("1")){
+			this.job = warrior;
+		} else if(startingJobNumber.equalsIgnoreCase("2")){
+			this.job = monk;
+		} else if(startingJobNumber.equalsIgnoreCase("3")){
+			this.job = thief;
+		} else if(startingJobNumber.equalsIgnoreCase("4")){
+			this.job = redMage;
+		} else if(startingJobNumber.equalsIgnoreCase("5")){
+			this.job = whiteMage;
+		} else if(startingJobNumber.equalsIgnoreCase("6")){
+			this.job = blackMage;
+		}
+
+		Weapon ceramicDagger = new Weapon("Ceramic Dagger",2,"dagger");
 		this.mainHand = ceramicDagger;
 		this.inventory.add(ceramicDagger);
 		final Tonic potion = new Tonic("Potion",2);
@@ -1235,7 +1249,7 @@ public String nothingOverThere() {
 			System.out.println(ConsoleColors.BLUE + "|                                                                               |" + ConsoleColors.RESET);
 			System.out.print(ConsoleColors.BLUE + "| MainHand: " + (this.mainHand != null ? (mainHand.getItemName() + "         | BattlePower: " + mainHand.getBattlePower()) : "{Empty}"));
 			if (this.mainHand != null) {
-				for (int j = 0; j < equipLength - this.mainHand.getItemName().length() - String.valueOf(mainHand.battlePower).length() - 37; j++) {
+				for (int j = 0; j < equipLength - this.mainHand.getItemName().length() - String.valueOf(mainHand.getBattlePower()).length() - 37; j++) {
 					System.out.print(" ");
 				}
 			} else {
@@ -2460,7 +2474,7 @@ public String nothingOverThere() {
 		System.out.print("| HP: " + this.job.getHp() + "/" + this.job.getMaxHp());
 		System.out.print(" | MP: " + this.job.getMp() + "/" + this.job.getMaxMp());
 		System.out.print(" | Exp: " + this.job.getExp() + "/" + this.job.getMaxExp());
-		for (int j = 0; j < (this.invLength - String.valueOf(job.getExp()).length()) - String.valueOf(getJob().getMaxExp()).length() - 29; j++) {
+		for (int j = 0; j < (this.invLength - String.valueOf(job.getHp()).length() - String.valueOf(job.getMaxHp()).length() - String.valueOf(job.getMp()).length() - String.valueOf(job.getMaxMp()).length() - String.valueOf(job.getExp()).length()) - String.valueOf(job.getMaxExp()).length() - 21; j++) {
 			System.out.print(" ");
 		}
 		System.out.println("|");

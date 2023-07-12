@@ -2,11 +2,11 @@ package textgame.jobs;
 
 import textgame.*;
 import textgame.Character;
-import textgame.jobs.Job;
+
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import textgame.jobs.Ability;
+
 
 public class Thief extends Job implements Serializable {
 
@@ -22,7 +22,9 @@ public class Thief extends Job implements Serializable {
 		setHp(getMaxHp());
 		setMaxMp(level);
 		setMp(getMaxMp());
-		setVigor(level);
+		setInitialVigor();
+		setInitialIntel();
+		setInitialVitality();
 		this.speed = 40;
 		this.stamina = 31;
 		this.magicPower = 28;
@@ -33,7 +35,7 @@ public class Thief extends Job implements Serializable {
 		this.mBlock = 2;
 		this.evade = 15;
 		this.defMod = 3;
-		this.abilities = new ArrayList<Ability>();
+		this.abilities = new ArrayList<>();
 		this.attack = new Ability("a: Attack");
 		this.steal = new Ability("s: Steal");
 		this.item = new Ability("i: Item");
@@ -70,20 +72,24 @@ public class Thief extends Job implements Serializable {
 		mp = maxMp;
 	}
 
-	public void setVigor(int newLevel){
-		this.vigor = 37 + newLevel;
+	public void setInitialVigor(){
+		this.vigor = 37;
 	}
-	public void setDefense(){}
+	public void setNextLevelVigor(int newLevel){vigor = vigor + newLevel;}
+	public void setInitialIntel(){intelligence = 38;}
+	public void setNextLevelIntel(int newLevel){intelligence = intelligence + newLevel;}
+	public void setInitialVitality(){vitality = 30;}
+	public void setNextLevelVitality(int newLevel){vitality = (((newLevel + 1) * 10));}
 
 	public void loadAbilities(){
 		for (Ability a : abilities){
 			System.out.println(a.getName());
 		}
 	}
+	@Override
+	public void setEnSpellIsActive(boolean enSpellIsActive) {this.enSpellIsActive = enSpellIsActive;}
+	@Override
+	public boolean enSpellIsActive() {return enSpellIsActive;}
 
-	public void setIntelligence(int newLevel)
-	{
-		intelligence = 38 + newLevel;
-	}
 
 }

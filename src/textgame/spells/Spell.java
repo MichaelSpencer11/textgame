@@ -17,6 +17,7 @@ public abstract class Spell implements Serializable {
     protected int mp;
     protected Element element;
     protected String description;
+    protected int amount;
 
     public Spell(String name, int bp, String shortcut, int mp, Element element,String description ){
         this.name = name;
@@ -25,6 +26,7 @@ public abstract class Spell implements Serializable {
         this.mp = mp;
         this.element = element;
         this.description = description;
+        this.amount = 0;
     }
 
     public Spell(){}
@@ -39,4 +41,5 @@ public abstract class Spell implements Serializable {
 
     public abstract void cast(Battle battle);
     public abstract void cast(Character source, Character target);
+    public int getAmount(){return this.amount;}
 }

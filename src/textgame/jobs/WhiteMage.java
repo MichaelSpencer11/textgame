@@ -23,8 +23,9 @@ public class WhiteMage extends Job implements Serializable {
 		setMaxExp(level);
 		setMaxMp(level);
 		setMp(getMaxMp());
-		setVigor(level);
-		setIntelligence(level);
+		setInitialVigor();
+		setInitialIntel();
+		setInitialVitality();
 		this.defense = 36;
 		this.magicDefense = 35;
 		this.mBlock = 9;
@@ -52,16 +53,14 @@ public class WhiteMage extends Job implements Serializable {
 		mp = maxMp;
 	}
 
-	public void setVigor(int newLevel){
-		vigor = 26 + newLevel;
+	public void setInitialVigor(){
+		vigor = 26;
 	}
-	public void setDefense(int level){
-		defense = (((level + 1) * 10));
-	}
-	public void setIntelligence(int newLevel)
-	{
-		intelligence = 42 + newLevel;
-	}
+	public void setNextLevelVigor(int newLevel){vigor = vigor + newLevel;}
+	public void setInitialIntel(){intelligence = 42;}
+	public void setNextLevelIntel(int newLevel){intelligence = intelligence + newLevel;}
+	public void setInitialVitality(){vitality = 30;}
+	public void setNextLevelVitality(int newLevel){vitality = (((newLevel + 1) * 10));}
 
 	public void loadAbilities(){
 		for (Ability a : abilities){
@@ -71,4 +70,8 @@ public class WhiteMage extends Job implements Serializable {
 
 	@Override
 	public ArrayList<Spell> getSpells(){return spells;}
+	@Override
+	public void setEnSpellIsActive(boolean enSpellIsActive) {this.enSpellIsActive = enSpellIsActive;}
+	@Override
+	public boolean enSpellIsActive() {return enSpellIsActive;}
 }

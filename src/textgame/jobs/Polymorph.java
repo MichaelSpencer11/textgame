@@ -3,9 +3,10 @@ package textgame.jobs;
 import textgame.Esper;
 import textgame.Form;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Polymorph extends Job {
+public class Polymorph extends Job implements Serializable {
 
 	protected ArrayList<Ability> abilities;
 	protected Ability attack;
@@ -15,18 +16,14 @@ public class Polymorph extends Job {
 	protected boolean morphed;
 	
 	public Polymorph() {
-		this.level = 1;
-		this.hp = 31;
-		this.mp = 42;
-		this.vigor = 31;
-		this.speed = 33;
-		this.stamina = 28;
-		this.magicPower = 42;
-		this.battlePower = 12;
-		this.defense = 42;
-		this.magicDefense = 33;
-		this.mBlock = 7;
-		this.evade = 5;
+		this.level = 2;
+		setMaxHp(level);
+		setHp(getMaxHp());
+		setMaxMp(level);
+		setMp(getMaxMp());
+		setInitialVigor();
+		setInitialIntel();
+		setInitialVitality();
 		this.form = null;
 		this.abilities = new ArrayList<Ability>();
 		this.attack = new Ability("Attack");
@@ -53,10 +50,14 @@ public class Polymorph extends Job {
 		mp = maxMp;
 	}
 
-	public void setVigor(int newLevel){
-		vigor = 31 + newLevel;
+	public void setInitialVigor(){
+		vigor = 31;
 	}
-	public void setDefense(){}
+	public void setNextLevelVigor(int newLevel){vigor = vigor + newLevel;}
+	public void setInitialIntel(){intelligence = 39;}
+	public void setNextLevelIntel(int newLevel){intelligence = intelligence + newLevel;}
+	public void setInitialVitality(){vitality = 30;}
+	public void setNextLevelVitality(int newLevel){vitality = (((newLevel + 1) * 10));}
 
 	public void loadAbilities(){
 		for (Ability a : abilities){
@@ -64,8 +65,8 @@ public class Polymorph extends Job {
 		}
 	}
 
-	public void setIntelligence(int newLevel)
-	{
-		intelligence = 39 + newLevel;
-	}
+	@Override
+	public void setEnSpellIsActive(boolean enSpellIsActive) {this.enSpellIsActive = enSpellIsActive;}
+	@Override
+	public boolean enSpellIsActive() {return enSpellIsActive;}
 }

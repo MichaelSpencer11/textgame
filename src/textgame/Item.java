@@ -1,5 +1,7 @@
 package textgame;
 
+import textgame.weapons.Weapon;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -30,7 +32,20 @@ public class Item implements Serializable {
 		protected int delay;
 		protected int hitRate;
 		protected int weight;
-		protected enum Rarity{
+
+	public void addBp(int amount){
+		setBattlePower(getBattlePower() + amount);
+	}
+
+	public void setBattlePower(int i) {
+		this.battlePower = i;
+	}
+
+	public void subtractBp(int amount) {
+		setBattlePower(getBattlePower() - amount);
+	}
+
+	protected enum Rarity{
 			Coarse,
 			Common,
 			Fine,
@@ -41,9 +56,6 @@ public class Item implements Serializable {
 		}
 
 		protected String rarity;
-		protected int rarityValueMod;
-
-
 
 		protected int level;
 

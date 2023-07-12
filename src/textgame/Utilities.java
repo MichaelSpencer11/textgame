@@ -17,7 +17,7 @@ public class Utilities {
             ObjectOutputStream saveObject = new ObjectOutputStream(saveFile);
             saveObject.writeObject(player);
             saveObject.close();
-            System.out.println(player.getName() + "saved successfully!");
+            System.out.println(player.getName() + " saved successfully!");
         } catch(Exception e){
             System.out.println(e.getMessage());
         }

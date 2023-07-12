@@ -30,6 +30,7 @@ public abstract class Job implements Serializable {
 	protected int evade;
 	protected int defMod;
 	protected ArrayList<Spell> spells;
+	protected boolean enSpellIsActive;
 
 
 	public void addHp(int hp){
@@ -46,6 +47,13 @@ public abstract class Job implements Serializable {
 		}
 	}
 
+	public void addBp(int amount){
+		this.setBattlePower(this.getBattlePower() + amount);
+	}
+
+	public void subtractBp(int amount){
+		this.setBattlePower(this.getBattlePower() - amount);
+	}
 
 
 	public void applyDamage(int damage){
@@ -60,13 +68,17 @@ public abstract class Job implements Serializable {
 	public int getMaxHp(){return maxHp;}
 	public abstract void setMaxHp(int newLevel);
 	public abstract void setMaxMp(int newLevel);
-	public abstract void setVigor(int newLevel);
+	public abstract void setInitialVigor();
+	public abstract void setNextLevelVigor(int newLevel);
+	public abstract void setInitialIntel();
+	public abstract void setNextLevelIntel(int newLevel);
+	public abstract void setInitialVitality();
+	public abstract void setNextLevelVitality(int newLevel);
 	public void setDefenseForLevelUp(int level){
 		this.defense = (level + 1) * 10;
 		//add armors' defense back in
 		
 	}
-	public int getDefMod(){return defMod;}
 	public String typeToString(){
 		return this.getClass().toString().substring(20);
 	}
@@ -88,10 +100,7 @@ public abstract class Job implements Serializable {
 	public int getEvade(){return evade;}
 	public int getIntelligence(){return intelligence;}
 	public int getVitality(){return vitality;}
-	public void setVitForLevelUp(int level){
-		this.vitality = (level + 1) * 10;
-	}
-	public void setConstitution(int vit){this.vitality = vit;}
+	public void setVitality(int vit){this.vitality = vit;}
 	public ArrayList<Spell> getSpells(){return spells;}
 
 	public void setHp(int hp) {
@@ -101,16 +110,17 @@ public abstract class Job implements Serializable {
 	public void setMp(int mp) {
 		this.mp = mp;
 	}
-
 	public int getIntel() {return intelligence;}
+	public void setIntelligence(int intelligence){
 
-	public abstract void setIntelligence(int level);
-
+	};
 	public void setDefense(int defense){this.defense = defense;}
-
 	public void setExp(int exp) {
 		this.exp = exp;
 	}
+	public void setBattlePower(int battlePower) {this.battlePower = battlePower;}
+	public void setEnSpellIsActive(boolean enSpellIsActive) {this.enSpellIsActive = enSpellIsActive;}
+	public boolean enSpellIsActive() {return enSpellIsActive;}
 }
 
 

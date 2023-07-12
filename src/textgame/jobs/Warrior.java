@@ -15,9 +15,12 @@ public class Warrior extends Job implements Serializable {
     public Warrior() {
 		this.level = 2;
 		setMaxHp(level);
+		setHp(getMaxHp());
 		setMaxExp(level);
 		setMaxMp(level);
-		setVigor(level);
+		setInitialVigor();
+		setInitialIntel();
+		setInitialVitality();
 		this.speed = 28;
 		this.stamina = 33;
 		this.magicPower = 25;
@@ -46,14 +49,15 @@ public class Warrior extends Job implements Serializable {
 		mp = maxMp;
 	}
 
-	public void setVigor(int newLevel)
-	{
-		vigor = 43 + newLevel;
-	}
 
-	public void setDefense(int level){
-		defense = (((level + 1) * 10));
+	public void setInitialVigor(){
+		this.vigor = 43;
 	}
+	public void setNextLevelVigor(int newLevel){vigor = vigor + newLevel;}
+	public void setInitialIntel(){intelligence = 35;}
+	public void setNextLevelIntel(int newLevel){intelligence = intelligence + newLevel;}
+	public void setInitialVitality(){vitality = 30;}
+	public void setNextLevelVitality(int newLevel){vitality = (((newLevel + 1) * 10));}
 
 	public void loadAbilities(){
 		for (Ability a : abilities){
@@ -65,4 +69,8 @@ public class Warrior extends Job implements Serializable {
 	{
 		intelligence = 35 + newLevel;
 	}
+	@Override
+	public void setEnSpellIsActive(boolean enSpellIsActive) {this.enSpellIsActive = enSpellIsActive;}
+	@Override
+	public boolean enSpellIsActive() {return enSpellIsActive;}
 }

@@ -13,7 +13,7 @@ public class Cure extends Spell implements Serializable {
     }
 
     public void cast(Battle battle){
-        int amount = 0;
+        amount = 0;
         int bp = this.bp;
         int level = battle.getPlayer().getJob().getLevel();
         int intel = battle.getPlayer().getJob().getIntelligence();
@@ -31,7 +31,7 @@ public class Cure extends Spell implements Serializable {
 
     
     public void cast(Character source, Character target){
-        int amount = 0;
+        amount = 0;
         int bp = this.bp;
         int level = source.getJob().getLevel();
         int intel = source.getJob().getIntelligence();

@@ -17,9 +17,10 @@ public class LevelUp {
         //set new mp
         player.getJob().setMaxMp(player.getJob().getLevel());
         //set new vigor
-        player.getJob().setVigor(player.getJob().getLevel());
+        player.getJob().setNextLevelVigor(player.getJob().getLevel());
         //set new vit and defense
-        player.getJob().setVitForLevelUp(player.getJob().getLevel());
+        player.getJob().setNextLevelVitality(player.getJob().getLevel());
+        player.getJob().setNextLevelIntel(player.getJob().getLevel());
         player.getJob().setDefense(player.getJob().getVitality() +
                 player.getHead().getDefense() +
                 player.getBody().getDefense() +

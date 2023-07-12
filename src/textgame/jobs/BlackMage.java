@@ -21,18 +21,19 @@ public class BlackMage extends Job implements Serializable {
 		this.level = 2;
 		setMaxHp(level);
 		setHp(maxHp);
+		setHp(getMaxHp());
 		setMaxExp(level);
 		setMaxMp(level);
 		setMp(maxMp);
-		setVigor(level);
-		setIntelligence(level);
-		setDefense(level);
+		setInitialVigor();
+		setInitialIntel();
+		setInitialVitality();
 		this.magicDefense = 40;
 		this.mBlock = 7;
 		this.evade = 14;
 		this.defMod = 2;
 		//this.spells.add(new Fire());
-		this.abilities = new ArrayList<Ability>();
+		this.abilities = new ArrayList<>();
 		this.attack = new Ability("a: Attack");
 		this.magic = new Ability("m: Magic");
 		this.item = new Ability("i: Item");
@@ -54,18 +55,20 @@ public class BlackMage extends Job implements Serializable {
 		mp = maxMp;
 	}
 
-	public void setVigor(int newLevel){
-		vigor = 28 + newLevel;
+	public void setInitialVigor(){
+		vigor = 28 ;
 	}
+	public void setNextLevelVigor(int newLevel){vigor = vigor + newLevel;}
 
-	public void setIntelligence(int newLevel)
+	public void setInitialIntel()
 	{
-		intelligence = 47 + newLevel;
+		intelligence = 47;
 	}
-	@Override
-	public void setDefense(int level){
-		defense = (((level + 1) * 10));
+	public void setNextLevelIntel(int newLevel){intelligence = intelligence + newLevel;}
+	public void setInitialVitality(){
+		vitality = 30;
 	}
+	public void setNextLevelVitality(int newLevel){vitality = (((newLevel + 1) * 10));}
 
 	public void loadAbilities(){
 		for (Ability a : abilities){
@@ -75,6 +78,11 @@ public class BlackMage extends Job implements Serializable {
 
 	@Override
 	public ArrayList<Spell> getSpells(){return spells;}
+
+	@Override
+	public void setEnSpellIsActive(boolean enSpellIsActive) {this.enSpellIsActive = enSpellIsActive;}
+	@Override
+	public boolean enSpellIsActive() {return enSpellIsActive;}
 
 	
 }

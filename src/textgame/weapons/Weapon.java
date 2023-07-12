@@ -9,8 +9,9 @@ import textgame.SpecialEffect;
 
 public class Weapon extends Item{
 	protected String type;
-	protected int battlePower;
 	protected int hitRate;
+
+	protected int battlePower;
 	protected int level;
 	protected int delay;
 
@@ -23,7 +24,8 @@ public class Weapon extends Item{
 	protected SpecialEffect specialEffect;
 	
 
-	public int getBattlePower() {return battlePower;}
+
+	public int getBattlePower() {return this.battlePower;}
 	public int getHitRate() {return hitRate;}
 	public int getDelay(){return delay;}
 
@@ -87,6 +89,23 @@ public class Weapon extends Item{
 	}
 
 	public String getType(){return this.type;}
+
+	@Override
+	public void setBattlePower(int i) {
+		this.battlePower = i;
+	}
+
+	@Override
+	public void addBp(int amount){
+		setBattlePower(getBattlePower() + amount);
+	}
+
+	@Override
+	public void subtractBp(int amount){
+		setBattlePower(getBattlePower() - amount);
+	}
+
+
 	
 	
 }
